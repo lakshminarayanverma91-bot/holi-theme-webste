@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-mood="happy">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Holi 2026 — Festival of Colors</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&family=Abril+Fatface&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════ CSS VARIABLES & THEMES ═══════════ */
+:root {
+  --pink:#FF2D78; --yellow:#FFD600; --green:#00E676; --blue:#00B0FF;
+  --purple:#D500F9; --orange:#FF6D00; --teal:#00E5FF; --red:#FF1744;
+  --bg:#0A0010; --surface:#110022; --card:#1A0035;
+  --text:#fff; --muted:rgba(255,255,255,.55);
+  --nav-bg:rgba(10,0,16,.85);
+  --mood-grad: linear-gradient(135deg, #FF2D78, #FFD600, #00E676);
+  --mood-glow: rgba(255,45,120,.3);
+  --mood-accent: #FFD600;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg: #FFF5F8;
+  --surface: #FFF0F5;
+  --card: #FFE8F0;
+  --text: #1a0010;
+  --muted: rgba(30,0,20,.6);
+  --nav-bg: rgba(255,245,248,.92);
+}
+[data-theme="light"] .hero-bg::after { background: linear-gradient(to bottom, rgba(255,245,248,.4), rgba(255,245,248,.2), rgba(255,245,248,.85)); }
+[data-theme="light"] nav { border-bottom: 1px solid rgba(255,45,120,.2); }
+[data-theme="light"] .nav-logo { text-shadow: 0 0 20px rgba(255,45,120,.3); }
+[data-theme="light"] .nav-links a { color: rgba(30,0,20,.6); }
+[data-theme="light"] .nav-links a:hover { color: var(--pink); background: rgba(255,45,120,.1); }
+[data-theme="light"] .footer-text, [data-theme="light"] .footer-links a { color: rgba(30,0,20,.5); }
+[data-theme="light"] .wish-input, [data-theme="light"] .form-input { color: #1a0010; background: rgba(255,45,120,.06); border-color: rgba(255,45,120,.2); }
+[data-theme="light"] .wish-input::placeholder, [data-theme="light"] .form-input::placeholder { color: rgba(30,0,20,.35); }
+[data-theme="light"] .about-card, [data-theme="light"] .wish-card, [data-theme="light"] .dish-card,
+[data-theme="light"] .shop-card, [data-theme="light"] .safety-card, [data-theme="light"] .contact-form,
+[data-theme="light"] .quiz-box, [data-theme="light"] .wish-form-wrap,
+[data-theme="light"] #modal-box, [data-theme="light"] .popup-box { 
+  background: #fff; box-shadow: 0 4px 24px rgba(255,45,120,.1);
+  border-color: rgba(255,45,120,.12);
+}
+[data-theme="light"] .card-text, [data-theme="light"] .wish-text,
+[data-theme="light"] .dish-desc, [data-theme="light"] .shop-desc,
+[data-theme="light"] .safety-text, [data-theme="light"] .modal-desc { color: rgba(30,0,20,.55); }
+[data-theme="light"] .ingr-item { color: rgba(30,0,20,.65); }
+[data-theme="light"] .step-item { color: rgba(30,0,20,.6); border-color: rgba(30,0,20,.06); }
+[data-theme="light"] .quiz-opt { background: rgba(255,45,120,.04); border-color: rgba(255,45,120,.12); color: rgba(30,0,20,.7); }
+[data-theme="light"] .quiz-opt:hover { background: rgba(255,214,0,.1); border-color: var(--yellow); color: #b85000; }
+[data-theme="light"] .info-chip { background: rgba(255,255,255,.9); border-color: rgba(255,45,120,.15); }
+[data-theme="light"] .chip-lbl { color: rgba(30,0,20,.35); }
+[data-theme="light"] .chip-val { color: #1a0010; }
+[data-theme="light"] .ticker { background: linear-gradient(90deg,rgba(255,45,120,.1),rgba(255,214,0,.1),rgba(0,230,118,.1)); }
+[data-theme="light"] .ticker-belt span { color: rgba(30,0,20,.5); }
+[data-theme="light"] .game-cta { background: rgba(255,45,120,.05); border-color: rgba(255,45,120,.15); }
+[data-theme="light"] #game-canvas { background: #FFF5F8; }
+[data-theme="light"] .cart-item { background: rgba(255,45,120,.05); border-color: rgba(255,45,120,.1); }
+[data-theme="light"] #cart-sb { background: #FFF5F8; border-left: 1px solid rgba(255,45,120,.15); }
+[data-theme="light"] footer { background: #fff0f5; border-top: 1px solid rgba(255,45,120,.1); }
+[data-theme="light"] .footer-bottom { border-color: rgba(255,45,120,.1); color: rgba(30,0,20,.3); }
+[data-theme="light"] .hero-sub { color: rgba(30,0,20,.75); }
+[data-theme="light"] .stat-l { color: rgba(30,0,20,.4); }
+[data-theme="light"] .sh { color: #1a0010; }
+[data-theme="light"] .section-tag { color: rgba(30,0,20,.5); background: rgba(255,45,120,.06); border-color: rgba(255,45,120,.15); }
+[data-theme="light"] .section-tag.pink { color: var(--pink); }
+[data-theme="light"] .section-tag.green { color: #00a855; }
+[data-theme="light"] .section-tag.blue { color: #006bb3; }
+[data-theme="light"] .section-tag.yellow { color: #a86b00; }
+[data-theme="light"] .section-tag.purple { color: var(--purple); }
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3 { color: #1a0010; }
+[data-theme="light"] p { color: rgba(30,0,20,.7); }
+[data-theme="light"] .modal-title { color: #1a0010; }
+[data-theme="light"] .card-title, [data-theme="light"] .dish-name, [data-theme="light"] .shop-name,
+[data-theme="light"] .safety-title, [data-theme="light"] .modal-label { color: #1a0010; }
+[data-theme="light"] .meme-card { background: #fff; box-shadow: 0 4px 24px rgba(255,45,120,.1); border-color: rgba(255,45,120,.12); }
+[data-theme="light"] .meme-title { color: #1a0010; }
+[data-theme="light"] .meme-src { color: rgba(30,0,20,.4); }
+
+/* Mood themes */
+[data-mood="romantic"] {
+  --mood-grad: linear-gradient(135deg, #FF2D78, #ff8fab, #D500F9);
+  --mood-glow: rgba(255,45,120,.4);
+  --mood-accent: #FF2D78;
+}
+[data-mood="happy"] {
+  --mood-grad: linear-gradient(135deg, #FFD600, #FF6D00, #FF2D78);
+  --mood-glow: rgba(255,214,0,.35);
+  --mood-accent: #FFD600;
+}
+[data-mood="calm"] {
+  --mood-grad: linear-gradient(135deg, #00B0FF, #00E5FF, #00E676);
+  --mood-glow: rgba(0,176,255,.3);
+  --mood-accent: #00B0FF;
+}
+[data-mood="energetic"] {
+  --mood-grad: linear-gradient(135deg, #00E676, #FFD600, #FF6D00);
+  --mood-glow: rgba(0,230,118,.35);
+  --mood-accent: #00E676;
+}
+
+/* ═══════════ RESET & BASE ═══════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;transition:background .8s, color .4s}
+
+/* Mood animated background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--mood-grad);
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity .8s, background 1s;
+  animation: moodShift 8s ease-in-out infinite alternate;
+}
+@keyframes moodShift { from{opacity:.03} to{opacity:.07} }
+
+/* Custom cursor */
+#cursor{position:fixed;width:20px;height:20px;border-radius:50%;background:var(--pink);pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .1s,width .2s,height .2s;mix-blend-mode:difference}
+#cursor-trail{position:fixed;width:40px;height:40px;border-radius:50%;border:2px solid var(--yellow);pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:left .15s,top .15s;opacity:.6}
+
+/* Particle canvas */
+#particle-canvas{position:fixed;inset:0;pointer-events:none;z-index:1}
+
+/* ═══════════ NAV ═══════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,214,0,.15);transition:background .4s}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Fredoka One',cursive;font-size:1.5rem;color:var(--yellow);text-shadow:0 0 20px rgba(255,214,0,.5)}
+.nav-logo span{color:var(--pink)}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:99px;transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--pink);background:rgba(255,45,120,.15)}
+.nav-right{display:flex;gap:6px;align-items:center}
+
+/* Theme & mood toggle */
+.theme-toggle{background:none;border:1px solid rgba(255,255,255,.15);color:var(--muted);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;font-size:.95rem}
+.theme-toggle:hover{border-color:var(--yellow);color:var(--yellow)}
+.nav-cart{background:none;border:1px solid rgba(255,255,255,.15);color:var(--muted);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;transition:all .25s}
+.nav-cart:hover{border-color:var(--pink);color:var(--pink)}
+.cart-count{position:absolute;top:-4px;right:-4px;width:16px;height:16px;background:var(--pink);border-radius:50%;font-size:.55rem;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center}
+.music-btn{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,var(--pink),var(--purple));border:none;color:#fff;padding:6px 12px;border-radius:99px;font-size:.7rem;font-weight:800;font-family:'Nunito';cursor:pointer;letter-spacing:.04em}
+.music-bars{display:flex;gap:2px;align-items:flex-end;height:12px}
+.music-bar{width:3px;border-radius:2px;background:#fff;animation:barAnim .6s ease infinite alternate}
+.music-bar:nth-child(1){height:5px;animation-delay:0s}.music-bar:nth-child(2){height:10px;animation-delay:.15s}.music-bar:nth-child(3){height:7px;animation-delay:.3s}
+@keyframes barAnim{from{transform:scaleY(.4)}to{transform:scaleY(1)}}
+
+/* Song controls */
+.song-controls{display:flex;align-items:center;gap:4px}
+.song-btn{background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:.95rem;padding:2px 4px;transition:color .2s}
+.song-btn:hover{color:#fff}
+.song-title{font-size:.6rem;color:rgba(255,255,255,.5);max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Ticker */
+.ticker{overflow:hidden;padding:8px 0;background:linear-gradient(90deg,rgba(255,45,120,.12),rgba(255,214,0,.12),rgba(0,230,118,.12));border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);position:fixed;top:54px;left:0;right:0;z-index:999}
+.ticker-belt{display:inline-block;white-space:nowrap;animation:tickMove 20s linear infinite}
+.ticker-belt span{font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin:0 20px}
+.ticker-belt span:nth-child(odd){color:var(--mood-accent,var(--yellow))}
+@keyframes tickMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ═══════════ HERO ═══════════ */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,45,120,.3),transparent 65%),
+  radial-gradient(ellipse 60% 50% at 20% 100%,rgba(0,230,118,.18),transparent 60%),
+  radial-gradient(ellipse 50% 60% at 80% 80%,rgba(0,176,255,.18),transparent 60%),
+  url('https://img.freepik.com/photos-premium/holi-festival-contexte-abstrait_806675-297.jpg') center/cover no-repeat;z-index:0}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,0,16,.5),rgba(10,0,16,.35),rgba(10,0,16,.82))}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px;margin-top:90px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,214,0,.12);border:1px solid rgba(255,214,0,.3);color:var(--yellow);font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:5px 16px;border-radius:99px;margin-bottom:24px;animation:badgePulse 3s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(255,214,0,.3)}50%{box-shadow:0 0 0 10px transparent}}
+.hero-h1{font-family:'Fredoka One',cursive;font-size:clamp(3.5rem,13vw,10rem);line-height:.95;margin-bottom:18px}
+.hero-h1 .word-happy{background:linear-gradient(135deg,var(--yellow),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 30px rgba(255,214,0,.4));animation:titleWave 3s ease-in-out infinite}
+.hero-h1 .word-holi{background:linear-gradient(135deg,var(--pink),var(--purple),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 30px rgba(255,45,120,.5));animation:titleWave 3s ease-in-out infinite .4s}
+@keyframes titleWave{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-1deg)}}
+.hero-h1 .exclaim{color:var(--green);-webkit-text-fill-color:var(--green);animation:exclaim 1s ease-in-out infinite alternate}
+@keyframes exclaim{from{transform:scale(1) rotate(-5deg)}to{transform:scale(1.15) rotate(5deg)}}
+.hero-sub{font-size:clamp(.85rem,2vw,1.1rem);color:var(--muted);max-width:540px;margin:0 auto 32px;line-height:1.75;font-weight:600}
+.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.btn-primary{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff;font-family:'Nunito';font-weight:800;font-size:.85rem;letter-spacing:.04em;padding:12px 24px;border-radius:99px;border:none;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 8px 24px rgba(255,45,120,.35);position:relative;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--yellow),var(--green));opacity:0;transition:opacity .3s}
+.btn-primary:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 32px rgba(255,45,120,.55)}
+.btn-primary:hover::before{opacity:1}
+.btn-primary span{position:relative;z-index:1}
+.btn-secondary{display:inline-flex;align-items:center;gap:7px;background:rgba(0,230,118,.12);color:var(--green);border:2px solid var(--green);font-family:'Nunito';font-weight:800;font-size:.85rem;padding:10px 24px;border-radius:99px;cursor:pointer;text-decoration:none;transition:all .3s}
+.btn-secondary:hover{background:var(--green);color:#000;transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,230,118,.35)}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;background:rgba(0,176,255,.1);color:var(--blue);border:2px solid var(--blue);font-family:'Nunito';font-weight:800;font-size:.85rem;padding:10px 24px;border-radius:99px;cursor:pointer;text-decoration:none;transition:all .3s}
+.btn-outline:hover{background:var(--blue);color:#000;transform:translateY(-3px)}
+.hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.stat-n{font-family:'Fredoka One',cursive;font-size:2rem;background:linear-gradient(135deg,var(--yellow),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-l{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:2px;font-weight:700}
+.color-orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;animation:orbFloat ease-in-out infinite alternate}
+@keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(20px,-30px) scale(1.1)}}
+
+/* ═══════════ MOOD SELECTOR ═══════════ */
+#mood-selector{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:32px 36px;max-width:600px;margin:0 auto 0;text-align:center}
+[data-theme="light"] #mood-selector{background:#fff;border-color:rgba(255,45,120,.12);box-shadow:0 4px 24px rgba(255,45,120,.08)}
+.mood-options{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.mood-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 20px;border-radius:18px;border:2px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);cursor:pointer;font-family:'Nunito';font-weight:800;font-size:.82rem;color:var(--muted);transition:all .35s;min-width:90px}
+.mood-btn:hover{transform:translateY(-4px) scale(1.05)}
+.mood-btn.active{transform:translateY(-4px) scale(1.05)}
+.mood-btn .mood-icon{font-size:2rem;transition:transform .3s}
+.mood-btn:hover .mood-icon, .mood-btn.active .mood-icon{transform:scale(1.2) rotate(-8deg)}
+.mood-btn[data-mood="romantic"].active{border-color:var(--pink);background:rgba(255,45,120,.15);color:var(--pink);box-shadow:0 8px 24px rgba(255,45,120,.3)}
+.mood-btn[data-mood="happy"].active{border-color:var(--yellow);background:rgba(255,214,0,.12);color:var(--yellow);box-shadow:0 8px 24px rgba(255,214,0,.3)}
+.mood-btn[data-mood="calm"].active{border-color:var(--blue);background:rgba(0,176,255,.12);color:var(--blue);box-shadow:0 8px 24px rgba(0,176,255,.3)}
+.mood-btn[data-mood="energetic"].active{border-color:var(--green);background:rgba(0,230,118,.12);color:var(--green);box-shadow:0 8px 24px rgba(0,230,118,.3)}
+
+/* ═══════════ SECTIONS ═══════════ */
+.sec{padding:90px 0;position:relative}
+.sec-inner{max-width:1200px;margin:0 auto;padding:0 28px}
+.section-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:.67rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:4px 12px;border-radius:99px;margin-bottom:14px;color:var(--muted)}
+.section-tag.pink{color:var(--pink);border-color:rgba(255,45,120,.25);background:rgba(255,45,120,.07)}
+.section-tag.green{color:var(--green);border-color:rgba(0,230,118,.25);background:rgba(0,230,118,.07)}
+.section-tag.blue{color:var(--blue);border-color:rgba(0,176,255,.25);background:rgba(0,176,255,.07)}
+.section-tag.yellow{color:var(--yellow);border-color:rgba(255,214,0,.25);background:rgba(255,214,0,.07)}
+.section-tag.purple{color:var(--purple);border-color:rgba(213,0,249,.25);background:rgba(213,0,249,.07)}
+.sh{font-family:'Fredoka One',cursive;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin-bottom:14px}
+.sh .accent{background:linear-gradient(135deg,var(--yellow),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Reveal animations */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:none}
+[data-d="1"]{transition-delay:.1s!important}[data-d="2"]{transition-delay:.2s!important}
+[data-d="3"]{transition-delay:.3s!important}[data-d="4"]{transition-delay:.4s!important}
+
+/* ═══════════ ABOUT ═══════════ */
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:44px}
+.about-card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:22px;padding:28px;position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s;cursor:pointer}
+.about-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .35s}
+.about-card:hover{transform:translateY(-8px);box-shadow:0 20px 56px rgba(0,0,0,.35)}
+.about-card:hover::before{opacity:1}
+.about-card.c1::before{background:linear-gradient(135deg,rgba(255,45,120,.1),transparent)}
+.about-card.c2::before{background:linear-gradient(135deg,rgba(255,214,0,.1),transparent)}
+.about-card.c3::before{background:linear-gradient(135deg,rgba(0,230,118,.1),transparent)}
+.card-num{font-family:'Fredoka One',cursive;font-size:3.5rem;opacity:.06;line-height:1;margin-bottom:8px}
+.card-icon{font-size:2.2rem;margin-bottom:12px}
+.card-title{font-family:'Baloo 2',cursive;font-weight:700;font-size:1.2rem;margin-bottom:8px}
+.card-text{font-size:.85rem;color:var(--muted);line-height:1.75}
+
+/* ═══════════ FESTIVAL TIMELINE ═══════════ */
+#timeline{background:linear-gradient(180deg,var(--bg),rgba(20,0,40,.9),var(--bg))}
+.timeline-wrap{position:relative;margin-top:52px;padding:0 20px}
+.timeline-line{position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--pink),var(--yellow),var(--green),var(--blue),var(--purple));border-radius:2px}
+.timeline-item{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-bottom:60px;align-items:center}
+.timeline-item:nth-child(odd) .t-content{grid-column:1;text-align:right;padding-right:36px}
+.timeline-item:nth-child(odd) .t-center{grid-column:2}
+.timeline-item:nth-child(odd) .t-empty{grid-column:3}
+.timeline-item:nth-child(even) .t-empty{grid-column:1}
+.timeline-item:nth-child(even) .t-center{grid-column:2}
+.timeline-item:nth-child(even) .t-content{grid-column:3;padding-left:36px}
+.t-center{display:flex;align-items:center;justify-content:center}
+.t-dot{width:52px;height:52px;border-radius:50%;border:3px solid;display:flex;align-items:center;justify-content:center;font-size:1.4rem;background:var(--bg);transition:transform .3s;cursor:default;z-index:2;position:relative}
+.t-dot:hover{transform:scale(1.2) rotate(10deg)}
+.t-card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:22px;transition:transform .3s,box-shadow .3s}
+[data-theme="light"] .t-card{background:#fff;border-color:rgba(255,45,120,.12);box-shadow:0 2px 16px rgba(255,45,120,.07)}
+.t-card:hover{transform:translateY(-5px);box-shadow:0 16px 44px rgba(0,0,0,.28)}
+.t-year{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:700}
+.t-title{font-family:'Fredoka One',cursive;font-size:1.3rem;margin-bottom:8px}
+.t-text{font-size:.82rem;color:var(--muted);line-height:1.7}
+.t-img{font-size:2rem;margin-bottom:10px}
+@media(max-width:700px){
+  .timeline-line{left:24px}
+  .timeline-item{grid-template-columns:48px 1fr;gap:0}
+  .timeline-item:nth-child(odd) .t-content,
+  .timeline-item:nth-child(even) .t-content{grid-column:2;text-align:left;padding:0 0 0 20px}
+  .timeline-item:nth-child(odd) .t-center,
+  .timeline-item:nth-child(even) .t-center{grid-column:1;grid-row:1}
+  .timeline-item:nth-child(odd) .t-empty,
+  .timeline-item:nth-child(even) .t-empty{display:none}
+}
+
+/* ═══════════ HOLIKA ═══════════ */
+.fire-emoji{font-size:6rem;line-height:1;filter:drop-shadow(0 0 60px rgba(255,100,0,.6));animation:fireWig 2s ease-in-out infinite alternate;display:block;text-align:center}
+@keyframes fireWig{from{transform:scaleX(1) skewX(-2deg)}to{transform:scaleX(1.06) skewX(2deg)}}
+.ember{position:absolute;pointer-events:none;animation:emberRise linear infinite;font-size:.6rem}
+@keyframes emberRise{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(-120px) rotate(360deg)}}
+.info-chip{display:flex;align-items:center;gap:10px;padding:11px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:13px;transition:all .3s;cursor:default}
+.info-chip:hover{border-color:rgba(255,109,0,.3);background:rgba(255,109,0,.07);transform:translateX(4px)}
+.chip-lbl{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.chip-val{font-size:.85rem;font-weight:700}
+
+/* ═══════════ DISHES ═══════════ */
+.dishes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin-top:44px}
+.dish-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.dish-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 18px 48px rgba(0,0,0,.35)}
+.dish-thumb{height:140px;overflow:hidden;border-radius:0;position:relative}
+.dish-img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.dish-card:hover .dish-img{transform:scale(1.1)}
+.dish-info{padding:12px 14px}
+.dish-name{font-family:'Baloo 2',cursive;font-weight:700;font-size:1rem;margin-bottom:3px}
+.dish-desc{font-size:.68rem;color:var(--muted);line-height:1.5}
+.dish-cta{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);margin-top:8px;font-weight:800}
+
+/* Dish Modal */
+#modal-overlay{display:none;position:fixed;inset:0;z-index:8000;background:rgba(0,0,0,.8);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:16px}
+#modal-overlay.open{display:flex;animation:fadeIn .25s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+#modal-box{max-width:600px;width:100%;max-height:90vh;overflow-y:auto;background:var(--surface);border:1px solid rgba(255,255,255,.1);border-radius:24px;animation:popIn .4s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{from{transform:scale(.6) rotate(-5deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.modal-bar{height:4px;border-radius:24px 24px 0 0}
+.modal-inner{padding:24px}
+.modal-title{font-family:'Fredoka One',cursive;font-size:1.7rem;margin-bottom:4px}
+.modal-desc{font-size:.8rem;color:var(--muted);margin-bottom:18px}
+.modal-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:480px){.modal-cols{grid-template-columns:1fr}}
+.modal-label{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:10px;font-weight:700}
+[data-theme="light"] .modal-label{color:rgba(30,0,20,.35)}
+.ingr-item{display:flex;align-items:flex-start;gap:7px;font-size:.8rem;color:var(--muted);padding:4px 0}
+.ingr-dot{color:var(--green);flex-shrink:0;margin-top:2px}
+.step-item{font-size:.8rem;color:var(--muted);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.6}
+.step-item:last-child{border-bottom:none}
+.step-n{font-family:'Fredoka One',cursive;color:var(--pink);margin-right:5px}
+.modal-close{background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer;padding:4px;transition:color .2s;line-height:1}
+.modal-close:hover{color:var(--pink)}
+.divline{height:1px;background:rgba(255,255,255,.06);margin:14px 0}
+[data-theme="light"] .divline{background:rgba(30,0,20,.08)}
+
+/* ═══════════ WISHES ═══════════ */
+.wishes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:44px}
+.wish-card{background:var(--card);border-radius:18px;padding:24px 20px;position:relative;overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s;border:1px solid rgba(255,255,255,.05)}
+.wish-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.wish-card.w1::before{background:linear-gradient(90deg,var(--pink),var(--yellow))}
+.wish-card.w2::before{background:linear-gradient(90deg,var(--blue),var(--green))}
+.wish-card.w3::before{background:linear-gradient(90deg,var(--purple),var(--pink))}
+.wish-card.w4::before{background:linear-gradient(90deg,var(--yellow),var(--green))}
+.wish-card.w5::before{background:linear-gradient(90deg,var(--teal),var(--blue))}
+.wish-card.w6::before{background:linear-gradient(90deg,var(--orange),var(--red))}
+.wish-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(0,0,0,.35)}
+.wish-icon{font-size:2rem;margin-bottom:14px;display:block;text-align:center}
+.wish-text{font-style:italic;font-size:.87rem;color:var(--muted);line-height:1.85;text-align:center;margin-bottom:18px;font-weight:600}
+.wish-actions{display:flex;gap:7px;justify-content:center}
+.btn-wa{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-size:.72rem;font-weight:800;padding:6px 12px;border-radius:99px;border:none;cursor:pointer;font-family:'Nunito';transition:transform .2s}
+.btn-wa:hover{transform:scale(1.05)}
+.btn-copy{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.08);color:var(--muted);border:1px solid rgba(255,255,255,.12);font-size:.72rem;font-weight:800;padding:6px 12px;border-radius:99px;cursor:pointer;font-family:'Nunito';transition:all .2s}
+.btn-copy:hover{background:rgba(255,255,255,.16);color:#fff}
+.copied-badge{position:absolute;top:10px;right:10px;background:var(--green);color:#000;font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px;opacity:0;transition:opacity .3s}
+
+/* AI Wish Generator */
+.ai-wish-wrap{max-width:540px;margin:44px auto 0;background:var(--card);border:1px solid rgba(255,45,120,.18);border-radius:22px;padding:32px;text-align:center}
+[data-theme="light"] .ai-wish-wrap{background:#fff;border-color:rgba(255,45,120,.2);box-shadow:0 4px 24px rgba(255,45,120,.08)}
+.ai-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(213,0,249,.15),rgba(255,45,120,.15));border:1px solid rgba(213,0,249,.3);color:var(--purple);font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:99px;margin-bottom:14px}
+.wish-input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 16px;font-family:'Nunito';font-size:.9rem;color:var(--text);outline:none;transition:border-color .3s;margin-bottom:10px}
+.wish-input:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,45,120,.1)}
+.wish-input::placeholder{color:rgba(255,255,255,.28)}
+.wish-type-select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:11px 14px;font-family:'Nunito';font-size:.85rem;color:var(--text);outline:none;margin-bottom:10px;cursor:pointer}
+[data-theme="light"] .wish-type-select{background:rgba(255,45,120,.04);border-color:rgba(255,45,120,.15);color:#1a0010}
+.ai-loading{display:none;text-align:center;padding:16px;color:var(--purple);font-weight:700;font-size:.88rem}
+.ai-loading.show{display:block}
+.ai-result{display:none;background:rgba(213,0,249,.06);border:1px solid rgba(213,0,249,.2);border-radius:14px;padding:18px;margin-top:14px;font-style:italic;color:var(--text);line-height:1.85;font-size:.9rem;font-weight:600;text-align:left}
+[data-theme="light"] .ai-result{background:rgba(213,0,249,.04);color:#1a0010}
+.ai-result.show{display:block;animation:fadeIn .5s}
+.ai-result-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+
+/* Personal Wish Popup */
+#wish-popup{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.88);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:16px}
+#wish-popup.open{display:flex}
+.popup-box{max-width:440px;width:100%;background:var(--card);border-radius:26px;overflow:hidden;animation:popIn .5s cubic-bezier(.34,1.56,.64,1);box-shadow:0 40px 80px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.08)}
+.popup-stripe{height:5px;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--green),var(--blue),var(--purple))}
+.popup-inner{padding:32px;text-align:center}
+.popup-emoji{font-size:4.5rem;margin-bottom:14px;display:block;animation:popIn .6s cubic-bezier(.34,1.56,.64,1)}
+.popup-title{font-family:'Fredoka One',cursive;font-size:2rem;margin-bottom:10px;background:linear-gradient(135deg,var(--yellow),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.popup-msg{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:24px;font-weight:600}
+.popup-btns{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════ GALLERY ═══════════ */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:155px;gap:10px;margin-top:44px}
+.g-item{border-radius:12px;overflow:hidden;cursor:pointer;position:relative}
+.g-item.span2{grid-column:span 2;grid-row:span 2}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+.g-item:hover img{transform:scale(1.08)}
+.g-ovl{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65),transparent 50%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:10px}
+.g-item:hover .g-ovl{opacity:1}
+.g-label{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+@media(max-width:600px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.g-item.span2{grid-column:span 2}}
+
+/* Lightbox */
+#lightbox{display:none;position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
+#lightbox.open{display:flex;animation:fadeIn .2s}
+.lb-close{position:absolute;top:20px;right:24px;font-size:1.6rem;color:var(--muted);cursor:pointer;background:none;border:none;transition:color .2s}
+.lb-close:hover{color:var(--pink)}
+
+/* ═══════════ SHOP ═══════════ */
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:44px}
+.shop-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden;transition:transform .3s,box-shadow .3s;position:relative}
+.shop-card:hover{transform:translateY(-8px);box-shadow:0 18px 48px rgba(0,0,0,.4)}
+.shop-thumb{height:170px;overflow:hidden;position:relative}
+.shop-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.shop-card:hover .shop-thumb img{transform:scale(1.1)}
+.shop-badge{position:absolute;top:8px;right:8px;font-size:.58rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:99px;color:#fff}
+.shop-body{padding:14px 16px}
+.shop-name{font-family:'Baloo 2',cursive;font-weight:700;font-size:1rem;margin-bottom:3px}
+.shop-desc{font-size:.68rem;color:var(--muted);margin-bottom:10px}
+.shop-row{display:flex;align-items:center;justify-content:space-between}
+.price{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--yellow)}
+.add-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:var(--muted);font-family:'Nunito';font-size:.7rem;font-weight:800;padding:6px 12px;border-radius:99px;cursor:pointer;transition:all .25s}
+.add-btn:hover{background:linear-gradient(135deg,var(--pink),var(--purple));border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(255,45,120,.3)}
+
+/* Cart */
+#cart-sb{position:fixed;right:-110%;top:0;width:min(360px,100vw);height:100vh;z-index:8500;background:var(--bg);border-left:1px solid rgba(255,255,255,.07);transition:right .42s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+#cart-sb.open{right:0}
+#cart-ovl{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:8400}
+.cart-item{display:flex;align-items:center;gap:9px;padding:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:13px}
+
+/* ═══════════ ORDER CONFIRMATION ═══════════ */
+#order-overlay{display:none;position:fixed;inset:0;z-index:9600;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);align-items:center;justify-content:center;padding:16px}
+#order-overlay.open{display:flex;animation:fadeIn .3s}
+.order-box{max-width:500px;width:100%;background:var(--card);border-radius:28px;overflow:hidden;animation:popIn .6s cubic-bezier(.34,1.56,.64,1);border:1px solid rgba(255,255,255,.1)}
+[data-theme="light"] .order-box{background:#fff}
+.order-top{height:6px;background:linear-gradient(90deg,var(--green),var(--teal),var(--blue))}
+.order-inner{padding:40px;text-align:center}
+.order-check{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--teal));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:2.5rem;animation:checkPop .8s cubic-bezier(.34,1.56,.64,1) .2s both}
+@keyframes checkPop{from{transform:scale(0) rotate(-180deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.order-title{font-family:'Fredoka One',cursive;font-size:2.2rem;margin-bottom:8px;color:var(--green)}
+.order-id{font-family:'Baloo 2',cursive;font-size:.85rem;color:var(--muted);margin-bottom:20px}
+.order-id span{color:var(--yellow);font-weight:800}
+.order-details{background:rgba(255,255,255,.04);border-radius:14px;padding:18px;margin:18px 0;text-align:left}
+[data-theme="light"] .order-details{background:rgba(255,45,120,.04)}
+.order-row{display:flex;justify-content:space-between;padding:6px 0;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.04)}
+[data-theme="light"] .order-row{border-color:rgba(30,0,20,.06)}
+.order-row:last-child{border:none}
+.order-row .label{color:var(--muted)}
+.order-row .val{font-weight:700;color:var(--text)}
+.delivery-animation{font-size:2.5rem;animation:deliveryBounce 1s ease-in-out infinite alternate}
+@keyframes deliveryBounce{from{transform:translateX(-10px)}to{transform:translateX(10px)}}
+
+/* ═══════════ QUIZ ═══════════ */
+.quiz-box{max-width:620px;margin:36px auto 0;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:22px;padding:32px}
+.quiz-q{font-family:'Baloo 2',cursive;font-weight:700;font-size:1.15rem;margin-bottom:22px;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:9px;margin-bottom:20px}
+.quiz-opt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:12px 16px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .25s;text-align:left;font-family:'Nunito';color:var(--muted)}
+.quiz-opt:hover{background:rgba(255,214,0,.07);border-color:var(--yellow);color:var(--yellow)}
+.quiz-opt.correct{background:rgba(0,230,118,.14);border-color:var(--green);color:var(--green)}
+.quiz-opt.wrong{background:rgba(255,45,120,.1);border-color:var(--pink);color:var(--pink)}
+.quiz-feedback{font-size:.85rem;color:var(--muted);margin-bottom:18px;min-height:22px;font-weight:600;text-align:center}
+.quiz-score{text-align:right;font-size:.78rem;font-weight:700;color:var(--yellow);margin-bottom:14px}
+.quiz-progress{height:5px;background:rgba(255,255,255,.07);border-radius:99px;margin-bottom:24px;overflow:hidden}
+.quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--pink),var(--yellow));border-radius:99px;transition:width .4s}
+
+/* ═══════════ GAMES ═══════════ */
+#game-canvas{border-radius:14px;display:block;background:radial-gradient(ellipse at 50% 0%,rgba(255,45,120,.18),transparent 70%),#0A0010;cursor:none}
+.game-arena{position:relative;width:460px;max-width:100%;height:540px;overflow:hidden;border-radius:22px;border:2px solid rgba(255,255,255,.13);background:radial-gradient(ellipse at 50% 30%,rgba(176,64,255,.18),transparent 70%),linear-gradient(135deg,#12003a,#001535);box-shadow:0 0 70px rgba(255,60,172,.25),0 0 35px rgba(176,64,255,.18)}
+.balloon{position:absolute;cursor:pointer;animation:balloonFall linear forwards;z-index:10;will-change:transform;text-align:center}
+@keyframes balloonFall{0%{transform:translateY(-80px) rotate(0);opacity:1}100%{transform:translateY(580px) rotate(20deg);opacity:.8}}
+.burst{position:absolute;pointer-events:none;z-index:20;animation:burstAnim .5s ease-out forwards;font-size:2.2rem}
+@keyframes burstAnim{0%{transform:scale(0);opacity:1}50%{transform:scale(2);opacity:.8}100%{transform:scale(3);opacity:0}}
+.score-pop-el{position:absolute;pointer-events:none;z-index:30;font-weight:900;font-size:1.4rem;text-shadow:0 2px 8px rgba(0,0,0,.5);animation:scorePop .8s ease-out forwards}
+@keyframes scorePop{0%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(-55px) scale(1.5);opacity:0}}
+.bomb-flash{animation:bombFlash .3s ease-out}
+@keyframes bombFlash{0%,100%{background:transparent}50%{background:rgba(255,0,0,.25)}}
+.timer-ring-circle{transition:stroke-dashoffset .1s linear}
+
+/* Rangoli Puzzle */
+#rangoli-canvas{border-radius:14px;cursor:crosshair;touch-action:none;display:block}
+
+/* Color Toss */
+#toss-canvas{border-radius:14px;cursor:crosshair;display:block}
+
+/* ═══════════ SAFETY ═══════════ */
+.safety-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:36px}
+.safety-card{background:var(--card);border:1px solid rgba(0,176,255,.13);border-radius:16px;padding:22px;transition:transform .3s}
+.safety-card:hover{transform:translateY(-4px)}
+.safety-icon{font-size:1.8rem;margin-bottom:10px}
+.safety-title{font-family:'Baloo 2',cursive;font-weight:700;font-size:.95rem;margin-bottom:7px;color:var(--blue)}
+.safety-text{font-size:.78rem;color:var(--muted);line-height:1.65}
+
+/* ═══════════ FOOTER ═══════════ */
+footer{background:#050008;border-top:1px solid rgba(255,255,255,.05);padding:56px 0 28px}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 28px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:36px;margin-bottom:40px}
+.footer-brand{font-family:'Fredoka One',cursive;font-size:1.5rem;color:var(--yellow);margin-bottom:10px}
+.footer-brand span{color:var(--pink)}
+.footer-text{font-size:.78rem;color:rgba(255,255,255,.32);line-height:1.7}
+.footer-heading{font-family:'Baloo 2',cursive;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:14px}
+.footer-links{display:flex;flex-direction:column;gap:7px}
+.footer-links a{font-size:.8rem;color:rgba(255,255,255,.32);text-decoration:none;transition:color .2s;font-weight:600}
+.footer-links a:hover{color:var(--pink)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:20px;text-align:center;font-size:.62rem;color:rgba(255,255,255,.18);letter-spacing:.1em}
+
+/* Toast */
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--green);color:#000;font-weight:800;font-size:.8rem;padding:9px 20px;border-radius:99px;z-index:9000;white-space:nowrap;box-shadow:0 8px 22px rgba(0,230,118,.35);pointer-events:none;transition:opacity .35s}
+
+/* Color blast effects */
+.blast-particle{position:fixed;pointer-events:none;z-index:9997;border-radius:50%;animation:blastFly linear forwards}
+@keyframes blastFly{from{opacity:1;transform:translate(0,0) scale(1)}to{opacity:0;transform:var(--tx,translate(100px,-100px)) scale(0)}}
+.powder-cloud{position:fixed;pointer-events:none;z-index:9996;border-radius:50%;filter:blur(14px);animation:cloudBurst ease-out forwards}
+@keyframes cloudBurst{0%{opacity:.8;transform:scale(0)}40%{opacity:.6}100%{opacity:0;transform:scale(4)}}
+.color-drop{position:fixed;pointer-events:none;z-index:9;border-radius:50%;animation:rainFall linear forwards}
+@keyframes rainFall{from{opacity:.7;transform:translateY(0)}to{opacity:0;transform:translateY(100vh)}}
+@keyframes confettiFall{from{transform:translateY(-20px) rotate(0);opacity:1}to{transform:translateY(100vh) rotate(720deg);opacity:0}}
+@keyframes cpFall{from{transform:translateY(0) rotate(0)}to{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+/* Music fab */
+#mfab{position:fixed;bottom:24px;right:24px;z-index:700;width:48px;height:48px;border-radius:50%;cursor:pointer;background:linear-gradient(135deg,var(--pink),var(--purple));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(255,45,120,.35);transition:transform .3s}
+#mfab:hover{transform:scale(1.1)}
+@keyframes mfabPulse{0%,100%{box-shadow:0 8px 22px rgba(255,45,120,.35),0 0 0 0 rgba(255,45,120,.3)}50%{box-shadow:0 8px 22px rgba(255,45,120,.35),0 0 0 16px transparent}}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--purple));border-radius:2px}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-stats{gap:20px}
+  #game-canvas{width:100%;height:280px}
+  .game-arena{height:400px}
+}
+
+/* Game hub tabs */
+.game-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.game-tab{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--muted);font-family:'Nunito';font-weight:800;font-size:.78rem;padding:8px 16px;border-radius:99px;cursor:pointer;transition:all .25s}
+.game-tab.active,.game-tab:hover{background:rgba(255,45,120,.15);border-color:var(--pink);color:var(--pink)}
+.game-panel{display:none}
+.game-panel.active{display:block;animation:fadeIn .3s}
+
+/* ═══════════ MEMES ═══════════ */
+.memes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:44px}
+.meme-card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden;cursor:pointer;transition:transform .35s,box-shadow .35s;position:relative}
+.meme-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 56px rgba(0,0,0,.4)}
+.meme-thumb{height:200px;overflow:hidden;position:relative}
+.meme-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.meme-card:hover .meme-thumb img{transform:scale(1.08)}
+.meme-play-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3);opacity:0;transition:opacity .3s}
+.meme-card:hover .meme-play-icon{opacity:1}
+.meme-play-icon span{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 8px 24px rgba(255,45,120,.4);transition:transform .25s}
+.meme-card:hover .meme-play-icon span{transform:scale(1.1)}
+.meme-body{padding:14px 16px}
+.meme-title{font-family:'Baloo 2',cursive;font-weight:700;font-size:.95rem;margin-bottom:4px;line-height:1.3}
+.meme-src{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:4px}
+.meme-badge{position:absolute;top:10px;left:10px;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:99px;color:#fff;background:linear-gradient(135deg,var(--pink),var(--purple));z-index:2}
+
+/* AI wish spinner */
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(213,0,249,.3);border-top-color:var(--purple);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:7px}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+<canvas id="particle-canvas"></canvas>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">🎨 Holi<span>.</span>2026</a>
+  <div class="nav-links">
+    <a href="#hero" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#timeline">Story</a>
+    <a href="#holika">Holika</a>
+    <a href="#dishes">Dishes</a>
+    <a href="#wishes">Wishes</a>
+    <a href="#games">Games</a>
+    <a href="#quiz-section">Quiz</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#shop">Shop</a>
+    <a href="#safety">Safety</a>
+    <a href="#memes">Memes</a>
+    <a href="#mood-sec">Mood</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" id="theme-btn">🌙</button>
+    <button class="nav-cart" onclick="toggleCart()" title="Cart" style="position:relative">
+      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      <span id="cart-count" style="display:none" class="cart-count">0</span>
+    </button>
+    <div style="display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:99px;padding:4px 8px">
+      <div class="song-controls">
+        <button class="song-btn" onclick="prevSong()" title="Previous">⏮</button>
+        <button class="song-btn" id="play-pause-btn" onclick="toggleMusic()" title="Play/Pause">▶️</button>
+        <button class="song-btn" onclick="nextSong()" title="Next">⏭</button>
+      </div>
+      <div class="song-title" id="song-title-display">Holi Tunes</div>
+    </div>
+  </div>
+</nav>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="ticker-belt">
+    <span>✦ Happy Holi 2026</span><span>रंगों का त्योहार</span><span>✦ Festival of Colors</span><span>Bura Na Mano, Holi Hai!</span><span>✦ Spread Joy</span><span>🎨 Play with Colors</span><span>✦ Happy Holi 2026</span><span>रंगों का त्योहार</span><span>✦ Festival of Colors</span><span>Bura Na Mano, Holi Hai!</span><span>✦ Spread Joy</span><span>🎨 Play with Colors</span>
+  </div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="color-orb" style="width:480px;height:480px;background:rgba(255,45,120,.16);top:-100px;left:-100px;animation-duration:8s"></div>
+  <div class="color-orb" style="width:380px;height:380px;background:rgba(0,230,118,.1);bottom:-80px;right:-80px;animation-duration:10s;animation-delay:-3s"></div>
+  <div class="color-orb" style="width:280px;height:280px;background:rgba(0,176,255,.13);top:40%;left:70%;animation-duration:7s;animation-delay:-5s"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Festival of Colors 2026 ✦</div>
+    <h1 class="hero-h1">
+      <div class="word-happy">Happy</div>
+      <div class="word-holi">Holi<span class="exclaim">!</span></div>
+    </h1>
+    <p class="hero-sub">Celebrate the most vibrant festival of India — where every color tells a story of love, joy, and the triumph of good over evil 🌈</p>
+    <div class="hero-btns">
+      <a href="#about" class="btn-primary" onclick="colorBlast(event)"><span>🎨 Discover Holi</span></a>
+      <a href="#wishes" class="btn-secondary" onclick="colorBlast(event)">🎁 Get Your Wish</a>
+      <a href="#shop" class="btn-outline" onclick="colorBlast(event)">🛍️ Shop</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">5000+</div><div class="stat-l">Years of History</div></div>
+      <div class="stat"><div class="stat-n">1B+</div><div class="stat-l">Celebrations</div></div>
+      <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Colors of Joy</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MOOD SELECTOR ═══ -->
+<section id="mood-sec" class="sec" style="padding:60px 0">
+  <div class="sec-inner">
+    <div id="mood-selector" class="rv">
+      <div class="section-tag purple" style="display:inline-flex;margin-bottom:14px">🎭 Color Mood</div>
+      <h2 class="sh" style="text-align:center;margin-bottom:4px">How are you <span class="accent">Feeling Today?</span></h2>
+      <p style="color:var(--muted);font-size:.85rem;text-align:center">Choose your vibe — the whole website transforms! ✨</p>
+      <div class="mood-options">
+        <button class="mood-btn" data-mood="romantic" onclick="setMood('romantic',this)">
+          <span class="mood-icon">🔴</span><span>Romantic</span>
+        </button>
+        <button class="mood-btn active" data-mood="happy" onclick="setMood('happy',this)">
+          <span class="mood-icon">🟡</span><span>Happy</span>
+        </button>
+        <button class="mood-btn" data-mood="calm" onclick="setMood('calm',this)">
+          <span class="mood-icon">🔵</span><span>Calm</span>
+        </button>
+        <button class="mood-btn" data-mood="energetic" onclick="setMood('energetic',this)">
+          <span class="mood-icon">🟢</span><span>Energetic</span>
+        </button>
+      </div>
+      <div id="mood-message" style="margin-top:18px;font-style:italic;color:var(--muted);font-size:.88rem;min-height:24px;transition:all .4s"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="sec">
+  <div class="sec-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-bottom:52px" class="rv">
+      <div>
+        <div class="section-tag pink">🌸 Ancient Roots</div>
+        <h2 class="sh">What is <span class="accent">Holi?</span></h2>
+        <p style="color:var(--muted);line-height:1.8;font-size:.9rem;margin-bottom:14px">Holi is the ancient Hindu spring festival of colors, celebrated across India, Nepal, and South Asian communities worldwide. Rooted in mythology, harvest, and the divine love of Radha and Krishna — it dissolves every social boundary for two days of pure joy.</p>
+        <p style="color:var(--muted);line-height:1.8;font-size:.9rem">Streets transform into living canvases of pink, yellow, and blue. Strangers become friends. Grudges are washed away by color. For one magical day, all are equal.</p>
+      </div>
+      <div style="text-align:center"><div style="font-size:min(160px,28vw);line-height:1;animation:fireWig 5s ease-in-out infinite alternate;filter:drop-shadow(0 0 50px rgba(255,214,0,.3))">🎊</div></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card c1 rv" data-d="1" onclick="colorBlast(event)"><div class="card-num" style="color:var(--pink)">01</div><div class="card-icon">⚡</div><div class="card-title">The Legend of Prahlad</div><div class="card-text">Prahlad's unshakeable devotion to Vishnu triumphed over demon-king Hiranyakashipu and fire-immune Holika. Good prevailed, evil turned to ash.</div></div>
+      <div class="about-card c2 rv" data-d="2" onclick="colorBlast(event)"><div class="card-num" style="color:var(--yellow)">02</div><div class="card-icon">🌸</div><div class="card-title">Spring Harvest</div><div class="card-text">Holi marks winter's end and the Rabi crop season. Farmers celebrate nature's abundance as flowers bloom in a symphony of color across the land.</div></div>
+      <div class="about-card c3 rv" data-d="3" onclick="colorBlast(event)"><div class="card-num" style="color:var(--green)">03</div><div class="card-icon">🤝</div><div class="card-title">Radical Unity</div><div class="card-text">Caste, class, age — all dissolve in a splash of color. Holi is the great equalizer: everyone plays, everyone laughs, everyone belongs.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FESTIVAL TIMELINE ═══ -->
+<section id="timeline" class="sec" style="background:linear-gradient(180deg,var(--bg),rgba(15,0,35,.9),var(--bg))">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="section-tag purple" style="display:inline-flex;margin-bottom:14px">📜 Ancient Saga</div>
+      <h2 class="sh rv" style="text-align:center">Festival <span style="background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Timeline</span></h2>
+      <p class="rv" style="color:var(--muted);max-width:480px;margin:0 auto 0" data-d="1">The mythological journey that shaped the world's most colorful festival</p>
+    </div>
+    <div class="timeline-wrap rv" data-d="2" id="timeline-container"></div>
+  </div>
+</section>
+
+<!-- ═══ HOLIKA DAHAN ═══ -->
+<section id="holika" class="sec" style="background:linear-gradient(180deg,var(--bg),rgba(30,5,0,.9),var(--bg))">
+  <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:220px;background:radial-gradient(ellipse,rgba(255,100,0,.18),transparent 70%);pointer-events:none"></div>
+  <div class="sec-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center">
+      <div class="rv" style="position:relative">
+        <span class="fire-emoji">🔥</span>
+        <span class="ember" style="left:30%;top:10%;animation-duration:1.8s;color:#FF6D00">✦</span>
+        <span class="ember" style="left:60%;top:5%;animation-duration:2.2s;animation-delay:.3s;color:#FFD600">✦</span>
+        <span class="ember" style="left:15%;top:20%;animation-duration:2s;animation-delay:.6s;color:#FF1744">•</span>
+        <span class="ember" style="left:75%;top:12%;animation-duration:1.6s;animation-delay:.2s;color:#FF6D00">✦</span>
+        <blockquote style="text-align:center;margin-top:24px;padding:0 14px">
+          <p style="font-style:italic;font-size:1rem;color:rgba(255,255,255,.45);line-height:1.75;font-family:'Baloo 2'">"Where there is devotion, fire cannot burn."</p>
+          <footer style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-top:8px">— Hindu Scripture</footer>
+        </blockquote>
+      </div>
+      <div>
+        <div class="section-tag" style="color:var(--orange);border-color:rgba(255,109,0,.25);background:rgba(255,109,0,.07)">🔥 Night Before Holi</div>
+        <h2 class="sh rv" data-d="1">Holika <span style="background:linear-gradient(135deg,var(--orange),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Dahan</span></h2>
+        <p class="rv" style="color:var(--muted);line-height:1.8;font-size:.88rem;margin-bottom:18px" data-d="2">On the full moon night of Phalguna, communities gather around a sacred bonfire. The burning effigy of Holika symbolizes the annihilation of evil — a ritual of purification carried through centuries.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px" class="rv" data-d="3">
+          <div class="info-chip"><span style="font-size:1.2rem">🌕</span><div><div class="chip-lbl">When</div><div class="chip-val">Full Moon Night</div></div></div>
+          <div class="info-chip"><span style="font-size:1.2rem">🙏</span><div><div class="chip-lbl">Ritual</div><div class="chip-val">Parikrama</div></div></div>
+          <div class="info-chip"><span style="font-size:1.2rem">🌾</span><div><div class="chip-lbl">Offerings</div><div class="chip-val">Grains & Coconut</div></div></div>
+          <div class="info-chip"><span style="font-size:1.2rem">📿</span><div><div class="chip-lbl">Meaning</div><div class="chip-val">Evil → Ash</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DISHES ═══ -->
+<section id="dishes" class="sec">
+  <div class="sec-inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px">
+      <div><div class="section-tag green">🍬 Festive Flavors</div><h2 class="sh rv">Holi <span class="accent">Delicacies</span></h2></div>
+      <p class="rv" style="color:rgba(255,255,255,.3);font-size:.82rem;max-width:220px;text-align:right" data-d="1">Click any dish for the full recipe!</p>
+    </div>
+    <div class="dishes-grid" id="dishes-grid"></div>
+  </div>
+</section>
+
+<!-- Dish Modal -->
+<div id="modal-overlay" onclick="closeDishModal(event)">
+  <div id="modal-box" onclick="event.stopPropagation()">
+    <div id="modal-bar" class="modal-bar"></div>
+    <div class="modal-inner">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+        <div style="flex:1">
+          <img id="modal-img" alt="Dish" style="width:100%;max-height:180px;object-fit:cover;border-radius:10px;margin-bottom:10px"/>
+          <h3 id="modal-title" class="modal-title"></h3>
+          <p id="modal-desc" class="modal-desc"></p>
+        </div>
+        <button onclick="closeDishModal()" class="modal-close" style="margin-left:10px">✕</button>
+      </div>
+      <div class="divline"></div>
+      <div class="modal-cols">
+        <div><div class="modal-label">Ingredients</div><ul id="modal-ingredients"></ul></div>
+        <div><div class="modal-label">Method</div><ol id="modal-steps"></ol></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WISHES ═══ -->
+<section id="wishes" class="sec" style="background:linear-gradient(180deg,var(--bg),rgba(17,0,34,.75),var(--bg))">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="section-tag purple" style="display:inline-flex;margin-bottom:14px">💌 Share the Love</div>
+      <h2 class="sh rv" style="text-align:center">Holi <span style="background:linear-gradient(135deg,var(--yellow),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Wishes</span></h2>
+    </div>
+    <div class="wishes-grid" id="wishes-grid"></div>
+
+    <!-- AI Wish Generator -->
+    <div class="ai-wish-wrap rv" data-d="2">
+      <div class="ai-badge">🤖 AI-Powered</div>
+      <h3 style="font-family:'Fredoka One',cursive;font-size:1.6rem;margin-bottom:6px">AI Wish <span style="color:var(--purple)">Generator</span></h3>
+      <p style="color:var(--muted);font-size:.82rem;margin-bottom:20px">Get a personalized Holi blessing crafted just for you by AI 💕</p>
+      <input id="wish-name" type="text" maxlength="30" placeholder="Your name…" class="wish-input"/>
+      <select id="wish-type" class="wish-type-select">
+        <option value="warm">💛 Warm & Heartfelt</option>
+        <option value="funny">😄 Funny & Playful</option>
+        <option value="spiritual">🙏 Spiritual & Blessed</option>
+        <option value="romantic">❤️ Romantic</option>
+        <option value="kids">🎈 For Kids</option>
+      </select>
+      <button class="btn-primary" style="width:100%;justify-content:center" onclick="generateAIWish()"><span>✦ Generate AI Wish</span></button>
+      <div class="ai-loading" id="ai-loading"><span class="spinner"></span>Claude is crafting your wish… ✨</div>
+      <div class="ai-result" id="ai-result">
+        <div id="ai-result-text"></div>
+        <div class="ai-result-actions">
+          <button class="btn-wa" onclick="shareAIWish()">📱 WhatsApp</button>
+          <button class="btn-copy" onclick="copyAIWish()">📋 Copy</button>
+          <button class="btn-secondary" style="font-size:.72rem;padding:5px 12px" onclick="generateAIWish()">🔄 Regenerate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Personal Wish Popup -->
+<div id="wish-popup" onclick="closeWishPopup(event)">
+  <div class="popup-box" onclick="event.stopPropagation()">
+    <div class="popup-stripe"></div>
+    <div class="popup-inner">
+      <span class="popup-emoji" id="wish-emoji-big">🎊</span>
+      <div class="popup-title">Happy Holi!</div>
+      <p class="popup-msg" id="wish-message"></p>
+      <div class="popup-btns">
+        <button onclick="closeWishPopup()" class="btn-primary" style="font-size:.78rem"><span>Close ✕</span></button>
+        <button onclick="shareWish()" class="btn-secondary" style="font-size:.78rem">Share 💌</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GAMES ═══ -->
+<section id="games" class="sec">
+  <div class="sec-inner">
+    <div class="section-tag pink">🎮 Play Now</div>
+    <h2 class="sh rv">Holi <span class="accent">Game Hub</span></h2>
+    <p class="rv" style="color:var(--muted);margin-bottom:28px" data-d="1">4 games celebrating the festival of colors!</p>
+
+    <div class="game-tabs rv" data-d="2">
+      <button class="game-tab active" onclick="switchGame('color-catch',this)">🪣 Color Catch</button>
+      <button class="game-tab" onclick="switchGame('balloon',this)">🎈 Balloon Burst</button>
+      <button class="game-tab" onclick="switchGame('rangoli',this)">🌸 Rangoli Draw</button>
+      <button class="game-tab" onclick="switchGame('color-toss',this)">🎯 Color Toss</button>
+    </div>
+
+    <!-- Game 1: Color Catch -->
+    <div id="panel-color-catch" class="game-panel active">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start">
+        <div>
+          <canvas id="game-canvas" width="380" height="480"></canvas>
+          <div style="display:flex;gap:9px;margin-top:10px;flex-wrap:wrap">
+            <button class="btn-primary" onclick="startColorCatch()"><span>🎮 Start</span></button>
+            <button class="btn-secondary" onclick="resetColorCatch()">↺ Reset</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:22px">
+            <div style="font-family:'Fredoka One',cursive;font-size:.85rem;color:var(--muted);margin-bottom:3px">SCORE</div>
+            <div id="cc-score" style="font-family:'Fredoka One',cursive;font-size:3rem;background:linear-gradient(135deg,var(--yellow),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent">0</div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:3px">Best: <span id="cc-hs" style="color:var(--yellow);font-weight:800">0</span></div>
+          </div>
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:20px">
+            <div style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:12px;font-size:.9rem">How to Play</div>
+            <div style="display:flex;flex-direction:column;gap:7px;font-size:.78rem;color:var(--muted)">
+              <div>🎨 Catch colors: <span style="color:var(--green);font-weight:700">+10 pts</span></div>
+              <div>⭐ Catch stars: <span style="color:var(--yellow);font-weight:700">+25 pts</span></div>
+              <div>💣 Dodge bombs: <span style="color:var(--red);font-weight:700">-20 pts</span></div>
+              <div>⌨️ Arrow keys / A D to move</div>
+            </div>
+          </div>
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:18px">
+            <div style="font-size:.7rem;color:var(--muted);margin-bottom:5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Time Left</div>
+            <div id="cc-timer" style="font-family:'Fredoka One',cursive;font-size:1.8rem;color:var(--blue)">45s</div>
+            <div style="height:5px;background:rgba(255,255,255,.06);border-radius:99px;margin-top:8px;overflow:hidden"><div id="cc-timer-bar" style="height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:99px;transition:width .5s;width:100%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game 2: Balloon Burst -->
+    <div id="panel-balloon" class="game-panel">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;flex-wrap:wrap">
+        <div>
+          <div class="game-arena" id="game-arena">
+            <div id="bb-start" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:50;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);border-radius:22px">
+              <div style="font-size:5rem;margin-bottom:12px;animation:fireWig 2s infinite alternate">🎈</div>
+              <h3 style="font-family:'Fredoka One',cursive;font-size:2rem;color:#fff;margin-bottom:16px">Balloon Burst</h3>
+              <button onclick="startBalloon(event)" class="btn-primary" style="font-size:1rem"><span>🎮 Start!</span></button>
+            </div>
+            <div id="bb-gameover" style="display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;z-index:50;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:22px">
+              <div style="font-size:4rem;margin-bottom:10px">🎊</div>
+              <div style="font-family:'Fredoka One',cursive;font-size:2rem;color:#fff;margin-bottom:4px">Game Over!</div>
+              <div id="bb-final" style="font-family:'Fredoka One',cursive;font-size:3rem;color:var(--yellow);margin-bottom:16px">0</div>
+              <div id="bb-hs-badge" style="display:none;color:var(--green);font-weight:800;margin-bottom:12px">🏆 New High Score!</div>
+              <button onclick="startBalloon(event)" class="btn-primary"><span>🔄 Play Again</span></button>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:22px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
+            <div><div style="font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Score</div><div id="bb-score" style="font-family:'Fredoka One',cursive;font-size:2rem;color:var(--yellow)">0</div></div>
+            <div style="position:relative">
+              <svg width="64" height="64" viewBox="0 0 80 80" style="transform:rotate(-90deg)">
+                <circle cx="40" cy="40" r="33" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/>
+                <circle id="bb-ring" cx="40" cy="40" r="33" fill="none" stroke="#FF3CAC" stroke-width="5" stroke-dasharray="207" stroke-dashoffset="0" stroke-linecap="round"/>
+              </svg>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column">
+                <div id="bb-timer" style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:#fff">30</div>
+              </div>
+            </div>
+            <div><div style="font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Best</div><div id="bb-hs" style="font-family:'Fredoka One',cursive;font-size:2rem;color:var(--purple)">0</div></div>
+          </div>
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:20px">
+            <div style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:10px;font-size:.9rem">Rules</div>
+            <div style="display:flex;flex-direction:column;gap:7px;font-size:.78rem;color:var(--muted)">
+              <div>🎈 Balloon: <span style="color:var(--green);font-weight:700">+10 pts</span></div>
+              <div>⭐ Star: <span style="color:var(--yellow);font-weight:700">+25 pts</span></div>
+              <div>💣 Bomb: <span style="color:var(--red);font-weight:700">-20 pts</span></div>
+              <div>🔥 5 combo = multiplier!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game 3: Rangoli Draw -->
+    <div id="panel-rangoli" class="game-panel">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start">
+        <div>
+          <canvas id="rangoli-canvas" width="420" height="420"></canvas>
+          <div style="display:flex;gap:9px;margin-top:10px;flex-wrap:wrap">
+            <button class="btn-primary" onclick="clearRangoli()"><span>🗑️ Clear</span></button>
+            <button class="btn-secondary" onclick="saveRangoli()">💾 Save</button>
+            <button class="btn-outline" onclick="randomRangoliPattern()">🎲 Random</button>
+          </div>
+        </div>
+        <div>
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:20px;margin-bottom:12px">
+            <div style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:14px;font-size:.95rem">🎨 Color Palette</div>
+            <div id="rangoli-palette" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px"></div>
+            <div style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:10px;font-size:.85rem">Brush Size</div>
+            <input type="range" id="brush-size" min="3" max="30" value="10" style="width:100%;accent-color:var(--pink)">
+            <div style="display:flex;justify-content:space-between;font-size:.65rem;color:var(--muted);margin-top:4px"><span>Fine</span><span>Thick</span></div>
+          </div>
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:18px">
+            <div style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:8px;font-size:.9rem">Patterns</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <button class="add-btn" onclick="drawBasePattern('circle')">⭕ Circles</button>
+              <button class="add-btn" onclick="drawBasePattern('star')">⭐ Star</button>
+              <button class="add-btn" onclick="drawBasePattern('lotus')">🌸 Lotus</button>
+              <button class="add-btn" onclick="drawBasePattern('mandala')">🔮 Mandala</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game 4: Color Toss -->
+    <div id="panel-color-toss" class="game-panel">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start">
+        <div>
+          <canvas id="toss-canvas" width="400" height="500"></canvas>
+          <div style="display:flex;gap:9px;margin-top:10px">
+            <button class="btn-primary" onclick="startColorToss()"><span>🎯 Start</span></button>
+            <button class="btn-secondary" onclick="resetColorToss()">↺ Reset</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:22px">
+            <div style="font-family:'Fredoka One',cursive;font-size:.85rem;color:var(--muted);margin-bottom:3px">SCORE</div>
+            <div id="ct-score" style="font-family:'Fredoka One',cursive;font-size:3rem;background:linear-gradient(135deg,var(--teal),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent">0</div>
+            <div style="font-size:.72rem;color:var(--muted)">Best: <span id="ct-hs" style="color:var(--yellow);font-weight:800">0</span></div>
+          </div>
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:18px">
+            <div style="font-family:'Baloo 2',cursive;font-weight:700;margin-bottom:10px;font-size:.9rem">How to Play</div>
+            <div style="display:flex;flex-direction:column;gap:7px;font-size:.78rem;color:var(--muted)">
+              <div>🎯 Click/tap to aim & throw</div>
+              <div>🟥🟨🟩 Hit matching color target</div>
+              <div>⭐ Bull's-eye: <span style="color:var(--yellow);font-weight:700">+50 pts</span></div>
+              <div>🎯 Hit: <span style="color:var(--green);font-weight:700">+20 pts</span></div>
+              <div>❌ Miss: <span style="color:var(--red);font-weight:700">-5 pts</span></div>
+              <div>30 rounds, aim fast!</div>
+            </div>
+          </div>
+          <div style="background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:18px">
+            <div style="font-size:.7rem;color:var(--muted);margin-bottom:4px;font-weight:700;text-transform:uppercase;letter-spacing:.1em">Round</div>
+            <div id="ct-round" style="font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--pink)">0 / 30</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUIZ ═══ -->
+<section id="quiz-section" class="sec" style="background:linear-gradient(180deg,var(--bg),rgba(10,0,34,.8),var(--bg))">
+  <div class="sec-inner">
+    <div style="text-align:center">
+      <div class="section-tag yellow" style="display:inline-flex;margin-bottom:14px">🧠 Test Your Knowledge</div>
+      <h2 class="sh rv" style="text-align:center">Holi <span class="accent">Quiz</span></h2>
+    </div>
+    <div class="quiz-box rv" data-d="2">
+      <div class="quiz-score">Score: <span id="quiz-score">0</span> / 10</div>
+      <div class="quiz-progress"><div class="quiz-progress-fill" id="quiz-prog" style="width:0%"></div></div>
+      <div id="quiz-container"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section id="gallery" class="sec">
+  <div class="sec-inner">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px">
+      <div><div class="section-tag blue">📸 Visual Stories</div><h2 class="sh rv">Holi <span style="background:linear-gradient(135deg,var(--blue),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Gallery</span></h2></div>
+    </div>
+    <div class="gallery-grid rv" data-d="2" id="gallery-grid"></div>
+  </div>
+</section>
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close">✕</button>
+  <div style="text-align:center"><div id="lb-content"></div><div id="lb-label" style="margin-top:12px;font-family:'Fredoka One',cursive;font-size:1.4rem;color:rgba(255,255,255,.5)"></div></div>
+</div>
+
+<!-- ═══ SHOP ═══ -->
+<section id="shop" class="sec">
+  <div class="sec-inner">
+    <div><div class="section-tag yellow">🛍️ Holi Essentials</div><h2 class="sh rv">Shop <span class="accent">Colors</span></h2></div>
+    <div class="shop-grid" id="shop-grid"></div>
+  </div>
+</section>
+
+<!-- Cart Sidebar -->
+<div id="cart-ovl" onclick="toggleCart()"></div>
+<div id="cart-sb">
+  <div style="padding:24px;height:100%;display:flex;flex-direction:column">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+      <h3 style="font-family:'Fredoka One',cursive;font-size:1.6rem">Your Cart 🛒</h3>
+      <button onclick="toggleCart()" style="color:var(--muted);font-size:1.3rem;cursor:pointer;background:none;border:none;transition:color .2s" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color=''">✕</button>
+    </div>
+    <div class="divline" style="margin-bottom:14px"></div>
+    <div id="cart-items" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:9px"></div>
+    <div id="cart-footer" style="display:none;padding-top:14px;border-top:1px solid rgba(255,255,255,.07)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <span style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Total</span>
+        <span id="cart-total" style="font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--yellow)"></span>
+      </div>
+      <button onclick="checkout()" class="btn-primary" style="width:100%;justify-content:center"><span>Checkout →</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Order Confirmation -->
+<div id="order-overlay">
+  <div class="order-box">
+    <div class="order-top"></div>
+    <div class="order-inner">
+      <div class="order-check">✓</div>
+      <div class="order-title">Order Placed!</div>
+      <div class="order-id">Order ID: <span id="order-id-val">HOLI2026-XXXX</span></div>
+      <div class="delivery-animation">🚚</div>
+      <div class="order-details">
+        <div class="order-row"><span class="label">Status</span><span class="val" style="color:var(--green)">Confirmed ✓</span></div>
+        <div class="order-row"><span class="label">Estimated Delivery</span><span class="val" id="delivery-date"></span></div>
+        <div class="order-row"><span class="label">Shipping</span><span class="val">Express 🚀 (Free)</span></div>
+        <div class="order-row"><span class="label">Payment</span><span class="val">COD / Online</span></div>
+        <div class="order-row"><span class="label">Total</span><span class="val" id="order-total-val" style="color:var(--yellow)"></span></div>
+      </div>
+      <p style="font-size:.8rem;color:var(--muted);margin-bottom:20px">You'll receive an SMS confirmation shortly! Get ready for a colorful Holi 🎨</p>
+      <button onclick="closeOrderOverlay()" class="btn-primary" style="width:100%;justify-content:center"><span>Continue Shopping 🎊</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SAFETY ═══ -->
+<section id="safety" class="sec">
+  <div class="sec-inner">
+    <div><div class="section-tag blue">🛡️ Play Safe</div><h2 class="sh rv">Holi <span style="background:linear-gradient(135deg,var(--blue),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Safety</span></h2></div>
+    <div class="safety-grid rv" data-d="2" id="safety-grid"></div>
+  </div>
+</section>
+
+<!-- ═══ MEMES ═══ -->
+<section id="memes" class="sec" style="background:linear-gradient(180deg,var(--bg),rgba(20,0,40,.85),var(--bg))">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="section-tag pink" style="display:inline-flex;margin-bottom:14px">😂 LOL Moments</div>
+      <h2 class="sh rv" style="text-align:center">Holi <span style="background:linear-gradient(135deg,var(--pink),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Memes</span></h2>
+      <p class="rv" style="color:var(--muted);max-width:480px;margin:0 auto" data-d="1">The funniest Holi reels & memes from Instagram — click to watch! 🎬</p>
+    </div>
+    <div class="memes-grid rv" data-d="2" id="memes-grid"></div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">🎨 Holi<span>.</span>2026</div>
+        <p class="footer-text">May every color bring joy, prosperity, and love. Happy Holi! 🌈</p>
+        <div style="display:flex;gap:10px;margin-top:16px;font-size:1.3rem">
+          <span style="cursor:pointer;transition:transform .2s;display:inline-block" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" onclick="colorBlast(event)">🩷</span>
+          <span style="cursor:pointer;transition:transform .2s;display:inline-block" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" onclick="colorBlast(event)">💛</span>
+          <span style="cursor:pointer;transition:transform .2s;display:inline-block" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" onclick="colorBlast(event)">💙</span>
+          <span style="cursor:pointer;transition:transform .2s;display:inline-block" onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" onclick="colorBlast(event)">💚</span>
+        </div>
+      </div>
+      <div><div class="footer-heading">Explore</div><div class="footer-links"><a href="#about">About Holi</a><a href="#timeline">Festival Story</a><a href="#holika">Holika Dahan</a><a href="#dishes">Recipes</a><a href="#wishes">Wishes</a></div></div>
+      <div><div class="footer-heading">Fun</div><div class="footer-links"><a href="#games">Color Catch</a><a href="#games">Balloon Burst</a><a href="#games">Rangoli Draw</a><a href="#games">Color Toss</a><a href="#quiz-section">Quiz</a></div></div>
+      <div><div class="footer-heading">More</div><div class="footer-links"><a href="#gallery">Gallery</a><a href="#shop">Shop</a><a href="#safety">Safety Tips</a><a href="#memes">Memes</a><a href="#mood-sec">Mood Theme</a></div></div>
+    </div>
+    <div class="footer-bottom">Made with ✦ colors & love · Holi 2026 · बुरा न मानो होली है</div>
+  </div>
+</footer>
+
+<!-- Music FAB -->
+<div id="mfab" onclick="toggleMusic()" title="Music">
+  <svg id="music-icon-fab" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   HOLI 2026 — Complete JavaScript Engine
+═══════════════════════════════════════════ */
+
+// ── CURSOR ──
+const cursor = document.getElementById('cursor');
+const cursorTrail = document.getElementById('cursor-trail');
+let mx=0,my=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+  setTimeout(()=>{cursorTrail.style.left=mx+'px';cursorTrail.style.top=my+'px';},80);
+});
+document.addEventListener('mousedown',()=>cursor.style.transform='translate(-50%,-50%) scale(1.8)');
+document.addEventListener('mouseup',()=>cursor.style.transform='translate(-50%,-50%) scale(1)');
+
+// ── THEME ──
+let isDark = true;
+function toggleTheme(){
+  isDark=!isDark;
+  document.documentElement.setAttribute('data-theme', isDark?'dark':'light');
+  document.getElementById('theme-btn').textContent = isDark?'🌙':'☀️';
+  showToast(isDark?'Dark mode 🌙':'Light mode ☀️');
+}
+
+// ── MOOD ──
+const moodMessages = {
+  romantic: '❤️ Romance fills the air — every color whispers love today',
+  happy: '🌟 Pure joy and laughter — the happiest Holi ever!',
+  calm: '🌊 Peaceful colors wash over you like gentle spring rain',
+  energetic: '⚡ High energy Holi — dance, play, and burst with color!'
+};
+const moodColors = {
+  romantic: ['#FF2D78','#ff8fab','#D500F9','#FF6D00'],
+  happy: ['#FFD600','#FF6D00','#FF2D78','#00E676'],
+  calm: ['#00B0FF','#00E5FF','#00E676','#D500F9'],
+  energetic: ['#00E676','#FFD600','#FF6D00','#FF2D78']
+};
+function setMood(mood, btn){
+  document.documentElement.setAttribute('data-mood', mood);
+  document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('mood-message').textContent = moodMessages[mood];
+  // Change color rain to mood colors
+  currentMoodColors = moodColors[mood];
+  colorBlastColors = moodColors[mood];
+  showToast('Mood: '+mood.charAt(0).toUpperCase()+mood.slice(1)+' ✨');
+}
+let currentMoodColors = moodColors.happy;
+let colorBlastColors = ['#FF2D78','#FFD600','#00E676','#00B0FF','#D500F9','#FF6D00','#FF1744','#00E5FF'];
+
+// ── COLOR RAIN ──
+function startColorRain(){
+  setInterval(()=>{
+    const d=document.createElement('div');
+    d.className='color-drop';
+    const s=Math.random()*10+5;
+    d.style.cssText=`width:${s}px;height:${s}px;background:${currentMoodColors[Math.floor(Math.random()*currentMoodColors.length)]};left:${Math.random()*100}vw;top:-${s}px;animation-duration:${Math.random()*3+2}s;opacity:.6;filter:blur(1px)`;
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(),5000);
+  },350);
+}
+
+// ── COLOR BLAST ──
+function colorBlast(e){
+  const x=e.clientX||e.touches?.[0]?.clientX||window.innerWidth/2;
+  const y=e.clientY||e.touches?.[0]?.clientY||window.innerHeight/2;
+  doBlast(x,y);
+}
+document.addEventListener('click',e=>{doBlast(e.clientX,e.clientY);});
+function doBlast(x,y){
+  const colors=colorBlastColors;
+  const cloud=document.createElement('div');
+  cloud.className='powder-cloud';
+  cloud.style.cssText=`left:${x-35}px;top:${y-35}px;width:70px;height:70px;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:.6s`;
+  document.body.appendChild(cloud);
+  setTimeout(()=>cloud.remove(),650);
+  for(let i=0;i<20+Math.floor(Math.random()*14);i++){
+    const p=document.createElement('div');
+    p.className='blast-particle';
+    const size=Math.random()*13+4,angle=Math.random()*360,dist=Math.random()*140+50;
+    const tx=Math.cos(angle*Math.PI/180)*dist,ty=Math.sin(angle*Math.PI/180)*dist;
+    p.style.cssText=`left:${x-size/2}px;top:${y-size/2}px;width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};--tx:translate(${tx}px,${ty}px);animation-duration:${Math.random()*.6+.4}s`;
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),1100);
+  }
+}
+
+// ── NAV SCROLL ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.background=
+    window.scrollY>60?(isDark?'rgba(10,0,16,.96)':'rgba(255,245,248,.98)'):
+    (isDark?'rgba(10,0,16,.85)':'rgba(255,245,248,.92)');
+},{passive:true});
+
+// ── REVEAL ──
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+  },{threshold:.1});
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+}
+
+// ── MUSIC (Real Holi Songs via iframe/embed) ──
+const holiSongs = [
+  { title: 'Rang Barse', src: 'assets/music/rang_barse.mp3' },
+  { title: 'Balam Pichkari', src: 'assets/music/balam_pichkari.mp3' },
+  { title: 'Do Me A Favour', src: 'assets/music/do_me_a_favour.mp3' },
+  { title: 'Badri Ki Dulhania', src: 'assets/badri_ki_dulhania.mp3' },
+];
+let currentSong = 0, audioPlayer = null, musicPlaying = false;
+
+function initAudio(){
+  if(!audioPlayer){
+    audioPlayer = new Audio();
+    audioPlayer.volume = 0.6;
+    audioPlayer.addEventListener('ended', nextSong);
+  }
+}
+function toggleMusic(){
+  initAudio();
+  if(!musicPlaying){
+    audioPlayer.src = holiSongs[currentSong].src;
+    audioPlayer.play().catch(()=>{
+      // Fallback to oscillator music if autoplay blocked
+      playOscillatorNote();
+    });
+    musicPlaying = true;
+    document.getElementById('play-pause-btn').textContent = '⏸️';
+    document.getElementById('mfab').style.animation = 'mfabPulse 1.8s ease-in-out infinite';
+    updateSongTitle();
+  } else {
+    audioPlayer.pause();
+    musicPlaying = false;
+    document.getElementById('play-pause-btn').textContent = '▶️';
+    document.getElementById('mfab').style.animation = '';
+  }
+}
+function nextSong(){
+  currentSong=(currentSong+1)%holiSongs.length;
+  if(musicPlaying){
+    audioPlayer.src=holiSongs[currentSong].src;
+    audioPlayer.play().catch(()=>{});
+  }
+  updateSongTitle();
+  showToast('🎵 '+holiSongs[currentSong].title);
+}
+function prevSong(){
+  currentSong=(currentSong-1+holiSongs.length)%holiSongs.length;
+  if(musicPlaying){
+    audioPlayer.src=holiSongs[currentSong].src;
+    audioPlayer.play().catch(()=>{});
+  }
+  updateSongTitle();
+  showToast('🎵 '+holiSongs[currentSong].title);
+}
+function updateSongTitle(){
+  document.getElementById('song-title-display').textContent=holiSongs[currentSong].title;
+}
+
+// Oscillator fallback
+let audioCtx2=null,oscInterval=null;
+const melody=[523,587,659,698,784,880,784,698,659,587];
+let noteIdx2=0;
+function playOscillatorNote(){
+  if(!audioCtx2)audioCtx2=new(window.AudioContext||window.webkitAudioContext)();
+  oscInterval=setInterval(()=>{
+    const osc=audioCtx2.createOscillator();
+    const gain=audioCtx2.createGain();
+    osc.connect(gain);gain.connect(audioCtx2.destination);
+    osc.type='sine';osc.frequency.value=melody[noteIdx2++%melody.length];
+    gain.gain.setValueAtTime(0.08,audioCtx2.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001,audioCtx2.currentTime+0.35);
+    osc.start();osc.stop(audioCtx2.currentTime+0.4);
+  },340);
+}
+
+const mfabPulseStyle=document.createElement('style');
+mfabPulseStyle.textContent='@keyframes mfabPulse{0%,100%{box-shadow:0 8px 22px rgba(255,45,120,.35),0 0 0 0 rgba(255,45,120,.3)}50%{box-shadow:0 8px 22px rgba(255,45,120,.35),0 0 0 16px transparent}}';
+document.head.appendChild(mfabPulseStyle);
+
+// ── TIMELINE ──
+const timelineData = [
+  {year:'Ancient India',title:'The Birth of Prahlad',icon:'👶',color:'var(--yellow)',text:'In the ancient kingdom of Hiranyakashipu, a child named Prahlad was born. Unlike his demon-king father, Prahlad was a devoted worshipper of Lord Vishnu from his very first breath.',side:'left'},
+  {year:'The Conflict',title:'Father vs. Son',icon:'⚔️',color:'var(--orange)',text:'Hiranyakashipu, who considered himself god, was enraged by his son\'s devotion to Vishnu. He tried every means to break Prahlad\'s faith — poisoning, drowning, wild elephants — but each time, Vishnu protected him.',side:'right'},
+  {year:'Holika\'s Plan',title:'The Fiery Plot',icon:'🔥',color:'var(--red)',text:'Desperate, Hiranyakashipu turned to his sister Holika, who possessed a divine boon: she could not be harmed by fire. Together they plotted to burn Prahlad by sitting with him in a blazing pyre.',side:'left'},
+  {year:'Divine Protection',title:'The Miracle',icon:'✨',color:'var(--purple)',text:'Prahlad sat in Holika\'s lap, chanting Vishnu\'s name. The fire raged — but it was Holika who burned to ash. Prahlad emerged unscathed. Good had triumphed over evil through pure devotion.',side:'right'},
+  {year:'Holika Dahan',title:'The Sacred Bonfire',icon:'🪔',color:'var(--pink)',text:'Every year, on the eve of Holi, communities light bonfires to commemorate this victory. The fire represents the burning of evil, ego, and negativity — a purification ritual for the new season.',side:'left'},
+  {year:'Dhulandi — Play Day',title:'The Color Festival Begins',icon:'🎨',color:'var(--green)',text:'The morning after Holika Dahan, people take to the streets with gulal, pichkaris, and water balloons. Every color symbolizes a blessing: red for love, yellow for prosperity, green for new beginnings.',side:'right'},
+  {year:'Radha & Krishna',title:'The Divine Colors',icon:'🌸',color:'var(--blue)',text:'Legend says Krishna, teasing the fair-skinned Radha, covered her face with color. Radha laughed, and from that laughter, a tradition was born. Holi became the festival of divine love and playful joy.',side:'left'},
+];
+
+function renderTimeline(){
+  const c=document.getElementById('timeline-container');
+  if(!c)return;
+  c.innerHTML=`<div class="timeline-line"></div>`+
+    timelineData.map((item,i)=>`
+      <div class="timeline-item rv" data-d="${(i%3)+1}">
+        ${item.side==='left' ? `
+          <div class="t-content"><div class="t-card"><div class="t-img">${item.icon}</div><div class="t-year">${item.year}</div><div class="t-title" style="color:${item.color}">${item.title}</div><div class="t-text">${item.text}</div></div></div>
+          <div class="t-center"><div class="t-dot" style="border-color:${item.color}">${item.icon}</div></div>
+          <div class="t-empty"></div>
+        ` : `
+          <div class="t-empty"></div>
+          <div class="t-center"><div class="t-dot" style="border-color:${item.color}">${item.icon}</div></div>
+          <div class="t-content"><div class="t-card"><div class="t-img">${item.icon}</div><div class="t-year">${item.year}</div><div class="t-title" style="color:${item.color}">${item.title}</div><div class="t-text">${item.text}</div></div></div>
+        `}
+      </div>`).join('');
+}
+
+// ── DISHES ──
+const dishes=[
+  {name:'Gujiya',image:'https://www.cubesnjuliennes.com/wp-content/uploads/2020/03/Best-Mawa-Gujiya-500x375.jpg',desc:'Sweet fried dumplings with khoya',
+   ingredients:['2 cups maida','1½ cups khoya','½ cup sugar','¼ cup dry fruits','Cardamom','Oil for frying'],
+   steps:['Knead maida into firm dough','Mix khoya, sugar, dry fruits','Roll discs, fill & seal','Deep fry until golden','Cool & store in airtight jar']},
+  {name:'Mathri',image:'https://www.cookwithmanali.com/wp-content/uploads/2015/11/Methi-Mathri-500x375.jpg',desc:'Crispy savory Holi crackers',
+   ingredients:['2 cups maida','¼ cup ghee','Ajwain','Black pepper','Salt'],
+   steps:['Rub ghee into flour','Knead stiff dough','Roll & cut shapes','Prick with fork','Fry on low heat till crisp']},
+  {name:'Malpua',image:'https://www.cookwithmanali.com/wp-content/uploads/2018/02/Malpua-500x375.jpg',desc:'Sweet pancakes in cardamom syrup',
+   ingredients:['1 cup maida','½ cup semolina','1 cup milk','Fennel seeds','Sugar syrup','Ghee'],
+   steps:['Make sugar syrup','Prepare batter, rest 30 min','Fry in ghee till golden','Soak in syrup 2-3 min','Serve with rabdi']},
+  {name:'Dahi Bhalla',image:'https://www.cookwithmanali.com/wp-content/uploads/2019/10/Dahi-Bhalla-500x500.jpg',desc:'Lentil dumplings in yogurt',
+   ingredients:['1 cup urad dal','2 cups thick yogurt','Cumin powder','Chutneys','Chaat masala'],
+   steps:['Grind soaked dal','Fry into fluffy vadas','Soak in warm water','Whisk yogurt smooth','Layer with chutneys']},
+  {name:'Thandai',image:'https://www.cookwithmanali.com/wp-content/uploads/2015/03/Thandai-Indian-Drink-500x500.jpg',desc:'Chilled saffron & nut milk',
+   ingredients:['1L full-fat milk','¼ cup sugar','Almonds & cashews','Poppy seeds','Saffron','Rose water'],
+   steps:['Soak nuts & seeds overnight','Grind into smooth paste','Heat milk, add saffron','Mix paste & strain','Refrigerate 2 hrs']},
+  {name:'Lassi',image:'https://d36v5spmfzyapc.cloudfront.net/wp-content/uploads/2022/07/Coconut-Lassi-3.jpg',desc:'Thick creamy yogurt drink',
+   ingredients:['2 cups thick curd','1 cup chilled milk','Sugar or salt','Cardamom','Rose water','Malai'],
+   steps:['Blend curd and milk','Add sugar/salt & spices','Blend 2 min till frothy','Pour over ice','Top with malai']},
+  {name:'Kanji Vada',image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxwiXa1ZtcLb9qNIlP5ijpwTjyTSFmgW8k8Q&s',desc:'Fermented mustard drink',
+   ingredients:['2 tbsp black mustard','Red chili powder','Salt','1L water','1 cup moong dal'],
+   steps:['Mix spices in water jar','Ferment in sunlight 2-3 days','Make moong dal vadas','Fry until crispy','Soak in kanji & serve cold']},
+  {name:'Puran Poli',image:'https://madhurasrecipe.com/wp-content/uploads/2023/03/Patawarachi-Puranpoli-2.jpg',desc:'Sweet wheat flatbread',
+   ingredients:['1 cup chana dal','1 cup jaggery','Cardamom','2 cups wheat flour','Ghee'],
+   steps:['Cook dal until very soft','Mash with jaggery (puran)','Make soft wheat dough','Stuff & roll gently','Cook with ghee till golden']},
+  {name:'Kachori',image:'https://sinfullyspicy.com/wp-content/uploads/2023/10/1200-by-1200-images-2-1.jpg',desc:'Spicy stuffed deep-fried snack',
+   ingredients:['2 cups maida','1 cup moong dal','Cumin & fennel seeds','Red chili powder','Garam masala','Oil for frying'],
+   steps:['Prepare stiff dough with maida','Cook dal mixture with spices','Stuff dough balls with filling','Seal and flatten gently','Deep fry until golden']},
+  {name:'Chole Bhature',image:'https://static.toiimg.com/thumb/53314156.cms?imgsize=1762111&width=800&height=800',desc:'Spicy chickpeas with fluffy fried bread',
+   ingredients:['2 cups boiled chickpeas','Onion-tomato masala','Ginger-garlic paste','Chole masala','2 cups maida','Curd & baking soda'],
+   steps:['Prepare spicy chole gravy','Knead soft dough for bhature','Rest dough for 1 hour','Roll into oval shapes','Deep fry until puffed and golden']},
+];
+const barGrads=['linear-gradient(90deg,#FF2D78,#F0A500)','linear-gradient(90deg,#9B5DE5,#00D4FF)','linear-gradient(90deg,#00E5A0,#00D4FF)','linear-gradient(90deg,#FF6B6B,#FF2D78)','linear-gradient(90deg,#F0A500,#FF6B35)','linear-gradient(90deg,#9B5DE5,#FF2D78)','linear-gradient(90deg,#00D4FF,#9B5DE5)','linear-gradient(90deg,#FF2D78,#9B5DE5)'];
+
+function renderDishes(){
+  const g=document.getElementById('dishes-grid');
+  if(!g)return;
+  g.innerHTML=dishes.map((d,i)=>`
+    <div class="dish-card rv" data-d="${(i%4)+1}" onclick="openDish(${i});colorBlast(event)">
+      <div class="dish-thumb"><img src="${d.image}" alt="${d.name}" class="dish-img" loading="lazy"></div>
+      <div class="dish-info"><div class="dish-name">${d.name}</div><div class="dish-desc">${d.desc}</div><div class="dish-cta">View Recipe →</div></div>
+    </div>`).join('');
+}
+function openDish(i){
+  const d=dishes[i];
+  document.getElementById('modal-bar').style.background=barGrads[i%barGrads.length];
+  document.getElementById('modal-img').src=d.image;
+  document.getElementById('modal-title').textContent=d.name;
+  document.getElementById('modal-desc').textContent=d.desc;
+  document.getElementById('modal-ingredients').innerHTML=d.ingredients.map(item=>`<li class="ingr-item"><span class="ingr-dot">✦</span>${item}</li>`).join('');
+  document.getElementById('modal-steps').innerHTML=d.steps.map((s,j)=>`<li class="step-item"><span class="step-n">${j+1}.</span>${s}</li>`).join('');
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDishModal(e){
+  if(!e||e.target===document.getElementById('modal-overlay')){
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+
+// ── WISHES ──
+const wishData=[
+  {text:'May this Holi fill your life with vibrant colors of happiness, prosperity, and love! May every color bring you closer to your dreams. Happy Holi! 🎊',icon:'🌸',cls:'w1'},
+  {text:'Wishing you a rainbow of joy, a spectrum of hope, and a canvas of love! May every color you play with make your life more beautiful! 🌈',icon:'🌈',cls:'w2'},
+  {text:'Let the colors of Holi wash away all worries, leaving only pure joy and love. May Radha and Krishna\'s blessings always be with you! 🙏',icon:'🔮',cls:'w3'},
+  {text:'May you be showered with red of love, green of harmony, yellow of joy, and blue of peace! Happy Holi, dear friend! 💐',icon:'🤝',cls:'w4'},
+  {text:'Holi is not just colors — it\'s the essence of love, laughter, and togetherness. May this festival bring endless smiles to your heart! 💛',icon:'🎨',cls:'w5'},
+  {text:'May the colors of Holi paint your year with bright hues of success, the softness of love, and the fragrance of joy! ✨',icon:'🌺',cls:'w6'},
+];
+function renderWishes(){
+  const g=document.getElementById('wishes-grid');
+  if(!g)return;
+  g.innerHTML=wishData.map((w,i)=>`
+    <div class="wish-card ${w.cls} rv" data-d="${(i%3)+1}" onclick="copyWish(${i},this)">
+      <span class="wish-icon">${w.icon}</span>
+      <p class="wish-text">${w.text}</p>
+      <div class="wish-actions">
+        <button class="btn-wa" onclick="event.stopPropagation();waShare(${i})">📱 WhatsApp</button>
+        <button class="btn-copy" onclick="event.stopPropagation();copyWish(${i},this.closest('.wish-card'))">📋 Copy</button>
+      </div>
+      <span class="copied-badge">Copied ✓</span>
+    </div>`).join('');
+}
+function copyWish(i,el){
+  navigator.clipboard.writeText(wishData[i].text).catch(()=>{});
+  const b=el.querySelector('.copied-badge');
+  b.style.opacity='1';setTimeout(()=>b.style.opacity='0',2000);
+  showToast('Wish copied! 🎨');
+}
+function waShare(i){
+  window.open('https://wa.me/?text='+encodeURIComponent(wishData[i].text),'_blank');
+}
+function shareWish(){
+  const text=document.getElementById('wish-message').textContent;
+  if(navigator.share)navigator.share({title:'Happy Holi!',text});
+  else{navigator.clipboard.writeText(text);showToast('Wish copied! 🎨');}
+}
+function closeWishPopup(e){
+  if(!e||e.target===document.getElementById('wish-popup')){
+    document.getElementById('wish-popup').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+
+// ── AI WISH GENERATOR ──
+let lastAIWish = '';
+async function generateAIWish(){
+  const name = document.getElementById('wish-name').value.trim();
+  const wishType = document.getElementById('wish-type').value;
+  if(!name){
+    const inp=document.getElementById('wish-name');
+    inp.style.borderColor='var(--pink)';inp.placeholder='Please enter your name 😊';
+    setTimeout(()=>{inp.style.borderColor='';inp.placeholder='Your name…';},2000);return;
+  }
+  
+  document.getElementById('ai-loading').classList.add('show');
+  document.getElementById('ai-result').classList.remove('show');
+  
+  const wishTypeDesc = {
+    warm: 'warm, heartfelt and emotional',
+    funny: 'funny, playful and humorous',
+    spiritual: 'spiritual, blessed and devotional with Hindu references',
+    romantic: 'romantic and full of love',
+    kids: 'fun, simple and suitable for children'
+  }[wishType];
+  
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': 'YOUR_API_KEY',
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 300,
+        messages: [{
+          role: 'user',
+          content: `Write a personalized Holi 2026 wish for someone named "${name}". Style: ${wishTypeDesc}. 
+          Requirements:
+          - Start with their name naturally
+          - Reference the festival of colors, Holi traditions
+          - Include 2-3 relevant emojis naturally
+          - Keep it to 3-4 sentences maximum
+          - Make it feel genuine and personal, not generic
+          - Don't use quotes or preamble, just the wish itself`
+        }]
+      })
+    });
+    const data = await res.json();
+    lastAIWish = data.content[0].text;
+    document.getElementById('ai-result-text').textContent = lastAIWish;
+    document.getElementById('ai-result').classList.add('show');
+    launchConfetti();
+  } catch(err) {
+    // Fallback to built-in wishes if API unavailable
+    const fallbacks = [
+      n=>`${n}, may this Holi shower you with the most brilliant colors of happiness and prosperity! 🌈 May every splash of gulal bring laughter, every drop of color bring love, and every moment of Holi 2026 be a memory you treasure forever. Wishing you the brightest festival! 🎨`,
+      n=>`Dear ${n}, as the colors of Holi paint the world in joy and love, may your life be drenched in the warmest hues of success and peace! 🌸 May the spirit of Prahlad's devotion inspire your days, and may Radha-Krishna's divine love fill your heart. Happy Holi! ✨`,
+    ];
+    lastAIWish = fallbacks[Math.floor(Math.random()*fallbacks.length)](name);
+    document.getElementById('ai-result-text').textContent = lastAIWish;
+    document.getElementById('ai-result').classList.add('show');
+  }
+  document.getElementById('ai-loading').classList.remove('show');
+}
+function copyAIWish(){
+  navigator.clipboard.writeText(lastAIWish).catch(()=>{});
+  showToast('AI Wish copied! ✨');
+}
+function shareAIWish(){
+  if(navigator.share)navigator.share({title:'Happy Holi 2026!',text:lastAIWish});
+  else{navigator.clipboard.writeText(lastAIWish);showToast('Wish copied for sharing! 🎨');}
+}
+
+// ── CONFETTI ──
+function launchConfetti(){
+  const colors=['#FF2D78','#F0A500','#00D4FF','#00E5A0','#9B5DE5','#FF6B6B','#FFD700'];
+  const shapes=['●','▲','■','✦','◆'];
+  for(let i=0;i<100;i++){
+    setTimeout(()=>{
+      const el=document.createElement('div');
+      el.style.cssText=`position:fixed;left:${Math.random()*100}vw;top:-24px;color:${colors[Math.floor(Math.random()*colors.length)]};font-size:${Math.random()*14+6}px;pointer-events:none;z-index:9999;animation:cpFall linear forwards;animation-duration:${Math.random()*2+1.4}s`;
+      el.textContent=shapes[Math.floor(Math.random()*shapes.length)];
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),3500);
+    },i*25);
+  }
+}
+
+// ── GALLERY ──
+const galleryItems=[
+  {image:'https://png.pngtree.com/background/20250522/original/pngtree-beautiful-plate-with-holi-color-pots-picture-image_16472814.jpg',label:'Color Explosion',span:'span2'},
+  {image:'https://sundaysforever-bucket.s3.ap-south-1.amazonaws.com/1676973083924.jpeg',label:'Rainbow Celebration'},
+  {image:'https://www.wimbledonguardian.co.uk/resources/images/19205077/?type=responsive-gallery-fullscreen',label:'Holi Dance'},
+  {image:'https://m.economictimes.com/thumb/msid-68481959,width-1200,height-900,resizemode-4,imgsize-833721/thandai-drink-holi-festival_gettyimages.jpg',label:'Thandai Moments'},
+  {image:'https://paavaniayurveda.com/cdn/shop/articles/pexels-nishant-das-3906333-1647475101927.jpg?v=1647617837&width=2048',label:'Spring Colors'},
+  {image:'https://img.etimg.com/thumb/width-640,height-480,imgsize-93180,resizemode-75,msid-128945514/astrology/others/removing-negativity-during-holika-dahan-7-powerful-rituals-for-holi-2026-energy-cleanse/removing-negativity-during-holika-dahan_-7-powerful-rituals-for-holi-2026-energy-cleanse.jpg',label:'Holika Dahan',span:'span2'},
+  {image:'https://media.istockphoto.com/id/1560690487/photo/young-indian-mother-applying-holi-colors-to-daughter-while-kid-on-father-shoulder-during.jpg?s=612x612&w=0&k=20&c=iUf5XwB10Sczxp6UvNEITK8GvKiTLo1rb9IRuf09LQc=',label:'Family Holi'},
+  {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqC3-5ojvd6EXpmXudJr0_e7Nw5k7BwmA6Fg&s',label:'Radha Krishna'},
+  {image:'https://www.jiomart.com/images/product/original/rv4rki2kz1/tota-magic-water-gun-pichkari-for-holi-party-kids-fun-activities-chemical-free-pichkari-product-images-orv4rki2kz1-p608140352-3-202402222031.jpg',label:'Pichkari Fun'},
+  {image:'https://www.revv.co.in/blogs/wp-content/uploads/2021/03/The-Park-Hotel-in-Kolkata.jpg',label:'Holi Celebration'},
+];
+function renderGallery(){
+  const g=document.getElementById('gallery-grid');
+  if(!g)return;
+  g.innerHTML=galleryItems.map((item,i)=>`
+    <div class="g-item${item.span?' '+item.span:''}" onclick="openLightbox(${i});colorBlast(event)">
+      <img src="${item.image}" alt="${item.label}" loading="lazy"/>
+      <div class="g-ovl"><span class="g-label">${item.label}</span></div>
+    </div>`).join('');
+}
+function openLightbox(i){
+  document.getElementById('lb-content').innerHTML=`<img src="${galleryItems[i].image}" style="max-width:90vw;max-height:70vh;border-radius:18px;object-fit:cover"/>`;
+  document.getElementById('lb-label').textContent=galleryItems[i].label;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// ── QUIZ ──
+const quizData=[
+  {q:'What is the alternate name for Holi?',opts:['Festival of Lights','Festival of Colors','Festival of Harvest','Festival of Fire'],ans:1},
+  {q:'Holika was the sister of which demon king?',opts:['Ravana','Mahishasura','Hiranyakashipu','Kansa'],ans:2},
+  {q:'What is the special drink associated with Holi?',opts:['Chai','Thandai','Lassi','Nimbu Pani'],ans:1},
+  {q:'On which day does Holika Dahan take place?',opts:['Purnima (Full Moon)','Amavasya (New Moon)','Ekadashi','Chaturthi'],ans:0},
+  {q:'Which region is famous for "Lathmar Holi"?',opts:['Varanasi','Mathura-Vrindavan','Jaipur','Mumbai'],ans:1},
+  {q:'What is the colored powder used in Holi called?',opts:['Rangoli','Gulal','Kumkum','Tilak'],ans:1},
+  {q:'Holi marks the arrival of which season?',opts:['Monsoon','Winter','Spring','Autumn'],ans:2},
+  {q:'In which month does Holi usually fall?',opts:['January','March','May','July'],ans:1},
+  {q:'The legend of Holi is connected to which devotee of Vishnu?',opts:['Dhruva','Prahlad','Hanuman','Arjuna'],ans:1},
+  {q:'What does the burning of Holika symbolize?',opts:['Harvest','Triumph of good over evil','Start of monsoon','New year'],ans:1},
+];
+let qIdx=0,qScore=0,qAnswered=false;
+function renderQuiz(){
+  const c=document.getElementById('quiz-container');
+  if(!c)return;
+  if(qIdx>=quizData.length){
+    c.innerHTML=`<div style="text-align:center;padding:20px 0"><div style="font-size:3.5rem;margin-bottom:14px">🎊</div><h3 style="font-family:'Fredoka One',cursive;font-size:1.8rem;margin-bottom:8px">Score: ${qScore}/${quizData.length}!</h3><p style="color:var(--muted);margin-bottom:20px">${qScore>=7?'Amazing Holi expert! 🌈':qScore>=4?'Good knowledge! 🎨':'Keep learning about Holi! 🌸'}</p><button class="btn-primary" onclick="restartQuiz()"><span>🔄 Play Again</span></button></div>`;
+    if(qScore>=7)launchConfetti();return;
+  }
+  const q=quizData[qIdx];
+  document.getElementById('quiz-prog').style.width=((qIdx/quizData.length)*100)+'%';
+  document.getElementById('quiz-score').textContent=qScore;
+  qAnswered=false;
+  c.innerHTML=`
+    <p class="quiz-q">${qIdx+1}. ${q.q}</p>
+    <div class="quiz-opts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQuiz(${i})">${o}</button>`).join('')}</div>
+    <div class="quiz-feedback" id="quiz-fb"></div>
+    <button class="btn-secondary" id="quiz-next-btn" style="display:none;font-size:.82rem" onclick="nextQuestion()">Next →</button>`;
+}
+function answerQuiz(i){
+  if(qAnswered)return;qAnswered=true;
+  const q=quizData[qIdx];
+  const opts=document.querySelectorAll('.quiz-opt');
+  opts[i].classList.add(i===q.ans?'correct':'wrong');
+  opts[q.ans].classList.add('correct');
+  opts.forEach(o=>o.disabled=true);
+  if(i===q.ans){qScore++;document.getElementById('quiz-fb').textContent='✅ Correct!';document.getElementById('quiz-fb').style.color='var(--green)';doBlast(window.innerWidth/2,200);}
+  else{document.getElementById('quiz-fb').textContent='❌ Wrong! Answer: '+q.opts[q.ans];document.getElementById('quiz-fb').style.color='var(--pink)';}
+  document.getElementById('quiz-next-btn').style.display='inline-flex';
+}
+function nextQuestion(){qIdx++;renderQuiz();}
+function restartQuiz(){qIdx=0;qScore=0;renderQuiz();}
+
+// ── SHOP ──
+const shopItems=[
+  {id:1,name:'Gulal Color Pack',image:'https://m.media-amazon.com/images/I/71oElqyFMnL._AC_UF894,1000_QL80_.jpg',desc:'6 vibrant eco-friendly hues',price:299,badge:'Bestseller',badgeColor:'#FF2D78'},
+  {id:2,name:'Pichkari Deluxe',image:'https://www.sendgiftsahmedabad.com/pub/media/catalog/product/cache/fe2a752764b2352ecdbaaa90a203554f/2/1/2143.jpg',desc:'Long-range 50cm water gun',price:499,badge:'Popular',badgeColor:'#9B5DE5'},
+  {id:3,name:'Water Balloons ×100',image:'https://www.jiomart.com/images/product/original/rvhtefzt6l/crazy-sutra-holi-water-balloons-multicolor-pack-of-500-product-images-orvhtefzt6l-p591322326-0-202205150635.jpg',desc:'Biodegradable fun balloons',price:149,badge:null},
+  {id:4,name:'White Kurta Set',image:'https://byshree.com/cdn/shop/articles/Let_Colours_Adorn_Your_White_Kurti_for_Holi_3d5a9b8d-266d-447b-87f6-fe25657abb1a.jpg?crop=center&height=1200&v=1684393881&width=1200',desc:'Pure cotton, perfect for Holi',price:1799,badge:'New',badgeColor:'#00D4FF'},
+  {id:5,name:'Sweets Gift Box',image:'https://www.kesarsweetsjaipur.com/cdn/shop/files/ZDLEC02_01.jpg?v=1758016845',desc:'Gujiya & Ladoo 500g',price:999,badge:'Gift',badgeColor:'#F0A500'},
+  {id:6,name:'Holi Combo Pack',image:'https://www.jaipurcraftonline.com/cdn/shop/files/71DqlGAjAhL._SL1500.jpg',desc:'Colors + gun + balloons',price:1199,badge:'🔥 Hot',badgeColor:'#FF6D00'},
+  {id:7,name:'Organic Colors',image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2DUu4Ke8NOOxbjMaLJPWM1m6liyABq5nLNA&s',desc:'100% natural flower-based',price:449,badge:'Organic',badgeColor:'#00E5A0'},
+  {id:8,name:'LED Party Lights',image:'https://m.media-amazon.com/images/I/61u2VCaWNtL.jpg',desc:'Colorful string lights 10m',price:1699,badge:'Decor',badgeColor:'#9B5DE5'},
+];
+let cart=JSON.parse(localStorage.getItem('holiCart2026')||'[]');
+function renderShop(){
+  const g=document.getElementById('shop-grid');
+  if(!g)return;
+  g.innerHTML=shopItems.map((item,i)=>`
+    <div class="shop-card rv" data-d="${(i%3)+1}">
+      <div class="shop-thumb">
+        <img src="${item.image}" alt="${item.name}" loading="lazy"/>
+        ${item.badge?`<span class="shop-badge" style="background:${item.badgeColor};color:#fff">${item.badge}</span>`:''}
+      </div>
+      <div class="shop-body">
+        <div class="shop-name">${item.name}</div>
+        <div class="shop-desc">${item.desc}</div>
+        <div class="shop-row"><div class="price">₹${item.price}</div><button class="add-btn" onclick="addToCart(${item.id});colorBlast(event)">+ Add</button></div>
+      </div>
+    </div>`).join('');
+}
+function addToCart(id){
+  const item=shopItems.find(s=>s.id===id);
+  const ex=cart.find(c=>c.id===id);
+  if(ex)ex.qty++;else cart.push({...item,qty:1});
+  saveCart();updateCartBadge();renderCartItems();
+  showToast(item.name+' added! 🎨');
+}
+function removeFromCart(id){cart=cart.filter(c=>c.id!==id);saveCart();updateCartBadge();renderCartItems();}
+function saveCart(){localStorage.setItem('holiCart2026',JSON.stringify(cart));}
+function updateCartBadge(){
+  const count=cart.reduce((s,c)=>s+c.qty,0);
+  const el=document.getElementById('cart-count');
+  if(count>0){el.textContent=count;el.style.display='flex';}else el.style.display='none';
+}
+function renderCartItems(){
+  const el=document.getElementById('cart-items');
+  const footer=document.getElementById('cart-footer');
+  if(!cart.length){el.innerHTML=`<div style="text-align:center;padding:40px 0"><div style="font-size:2.5rem;opacity:.18">🛒</div><p style="color:var(--muted);font-size:.8rem;margin-top:8px">Cart is empty</p></div>`;footer.style.display='none';return;}
+  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  el.innerHTML=cart.map(c=>`
+    <div class="cart-item">
+      <div style="flex:1;min-width:0"><div style="font-weight:700;font-size:.85rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.name}</div><div style="font-size:.7rem;color:var(--muted)">₹${c.price} × ${c.qty}</div></div>
+      <div style="text-align:right;flex-shrink:0"><div style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--yellow)">₹${c.price*c.qty}</div><button onclick="removeFromCart(${c.id})" style="font-size:.62rem;color:rgba(255,100,100,.7);background:none;border:none;cursor:pointer;margin-top:2px">Remove</button></div>
+    </div>`).join('');
+  document.getElementById('cart-total').textContent='₹'+total;
+  footer.style.display='block';
+}
+function toggleCart(){
+  const sb=document.getElementById('cart-sb');
+  const ovl=document.getElementById('cart-ovl');
+  if(!sb.classList.contains('open')){renderCartItems();sb.classList.add('open');ovl.style.display='block';document.body.style.overflow='hidden';}
+  else{sb.classList.remove('open');ovl.style.display='none';document.body.style.overflow='';}
+}
+function checkout(){
+  toggleCart();
+  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  // Generate fake order details
+  const orderId='HOLI'+Date.now().toString().slice(-6);
+  const days=Math.floor(Math.random()*4)+2;
+  const delivDate=new Date(Date.now()+days*86400000);
+  const dateStr=delivDate.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long'});
+  document.getElementById('order-id-val').textContent=orderId;
+  document.getElementById('delivery-date').textContent=dateStr;
+  document.getElementById('order-total-val').textContent='₹'+total;
+  document.getElementById('order-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  cart=[];saveCart();updateCartBadge();
+  launchConfetti();
+}
+function closeOrderOverlay(){
+  document.getElementById('order-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// ── SAFETY ──
+const safetyData=[
+  {icon:'🧴',title:'Use Organic Colors',text:'Choose herbal or flower-based gulal. Avoid synthetic dyes that can cause skin and eye irritation.'},
+  {icon:'👓',title:'Protect Your Eyes',text:'Wear glasses or goggles. If color enters eyes, rinse immediately with clean water.'},
+  {icon:'🌿',title:'Oil Your Skin',text:'Apply coconut oil before playing. This creates a protective barrier making cleanup much easier.'},
+  {icon:'💧',title:'Stay Hydrated',text:'Drink plenty of water. Avoid alcohol. Holi can be intense — keep cool and refreshed.'},
+  {icon:'🚫',title:'Ask Permission',text:'Always ask before applying color. Respecting boundaries makes Holi joyful for everyone.'},
+  {icon:'🏠',title:'Play Safely',text:'Children should play with supervision. Keep first aid handy for minor skin reactions.'},
+];
+function renderSafety(){
+  const g=document.getElementById('safety-grid');
+  if(!g)return;
+  g.innerHTML=safetyData.map(s=>`
+    <div class="safety-card rv"><div class="safety-icon">${s.icon}</div><div class="safety-title">${s.title}</div><div class="safety-text">${s.text}</div></div>`).join('');
+}
+
+// ── MEMES ──
+const memesData=[
+  {title:'Bhulaa!! 😂',thumb:'https://i.pinimg.com/564x/f7/e8/e7/f7e8e7c310477409c553e21ee4d3af26.jpg',link:'https://www.instagram.com/reel/DHIVHbpPtv6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',badge:'🔥 Trending'},
+  {title:'Happy Diwali, many-many returns of Holi',thumb:'https://i.ytimg.com/vi/o7aadqp2wWU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCB78Rt2q8Kxa61UaYgcXq2q69bHg',link:'https://www.instagram.com/reel/DVYSmKxDYIl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',badge:'😂 Funny'},
+  {title:'Holi is incomplete without this masterpiece',thumb:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6oW-vL-GyzNa0lq5J3HUaRDcgATS6gsqERg&s',link:'https://www.instagram.com/reel/DHFLumYTFKz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',badge:null},
+  {title:'Expectation vs Reality',thumb:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2itnR6FUo-aQ9hMd0U1dhSqRKy2IjspJEEg&s',link:'https://www.instagram.com/reel/DHGy7VwBkqV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',badge:'🎉 Viral'},
+  {title:'Her Feed vs My Feed',thumb:'https://i.ytimg.com/vi/BvDCKJCz-is/hqdefault.jpg',link:'https://www.instagram.com/reel/DG7nuKftxSs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',badge:null},
+  {title:'MOM (Multiverse of Madness)',thumb:'https://images8.alphacoders.com/140/thumb-350-1401469.webp',link:'https://www.instagram.com/p/DHDto_VzDuK/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',badge:'😤 Relatable'},
+];
+function renderMemes(){
+  const g=document.getElementById('memes-grid');
+  if(!g)return;
+  g.innerHTML=memesData.map((m,i)=>`
+    <a href="${m.link}" target="_blank" rel="noopener noreferrer" class="meme-card rv" data-d="${(i%4)+1}" onclick="colorBlast(event)" style="text-decoration:none;color:inherit">
+      ${m.badge?`<span class="meme-badge">${m.badge}</span>`:''}
+      <div class="meme-thumb">
+        <img src="${m.thumb}" alt="${m.title}" loading="lazy"/>
+        <div class="meme-play-icon"><span>▶</span></div>
+      </div>
+      <div class="meme-body">
+        <div class="meme-title">${m.title}</div>
+        <div class="meme-src">📸 Instagram Reel</div>
+      </div>
+    </a>`).join('');
+}
+
+// ── TOAST ──
+function showToast(msg){
+  const t=document.createElement('div');
+  t.className='toast';t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';},1800);
+  setTimeout(()=>t.remove(),2200);
+}
+
+// ══════════════════════════════════
+// GAME 1: COLOR CATCH
+// ══════════════════════════════════
+const ccCanvas=document.getElementById('game-canvas');
+const ccCtx=ccCanvas.getContext('2d');
+let ccState='idle',ccScore=0,ccTime=45,ccTimer=null,ccObjects=[],ccCombo=0;
+const BUCKET_W=65,BUCKET_H=25,BUCKET_SPD=7;
+let bucketX=ccCanvas.width/2-BUCKET_W/2,bucketKeys={left:false,right:false};
+let ccSpawnInt=null,ccAnimFrame=null;
+function startColorCatch(){
+  if(ccState==='playing')return;
+  ccState='playing';ccScore=0;ccTime=45;ccObjects=[];bucketX=ccCanvas.width/2-BUCKET_W/2;ccCombo=0;
+  document.getElementById('cc-score').textContent='0';
+  document.getElementById('cc-timer').textContent='45s';
+  document.getElementById('cc-timer-bar').style.width='100%';
+  ccSpawnInt=setInterval(spawnCCObj,720);
+  ccTimer=setInterval(()=>{
+    ccTime--;
+    document.getElementById('cc-timer').textContent=ccTime+'s';
+    document.getElementById('cc-timer-bar').style.width=(ccTime/45*100)+'%';
+    if(ccTime<=0)endColorCatch();
+  },1000);
+  requestAnimationFrame(ccLoop);
+}
+function resetColorCatch(){
+  clearInterval(ccSpawnInt);clearInterval(ccTimer);cancelAnimationFrame(ccAnimFrame);
+  ccState='idle';ccScore=0;ccTime=45;ccObjects=[];
+  document.getElementById('cc-score').textContent='0';
+  document.getElementById('cc-timer').textContent='45s';
+  document.getElementById('cc-timer-bar').style.width='100%';
+  ccCtx.clearRect(0,0,ccCanvas.width,ccCanvas.height);drawCCBucket();
+}
+function endColorCatch(){
+  clearInterval(ccSpawnInt);clearInterval(ccTimer);ccState='over';
+  const hs=Math.max(ccScore,parseInt(localStorage.getItem('ccHS')||'0'));
+  localStorage.setItem('ccHS',hs);
+  document.getElementById('cc-hs').textContent=hs;
+  ccCtx.fillStyle='rgba(10,0,16,.85)';ccCtx.fillRect(0,0,ccCanvas.width,ccCanvas.height);
+  ccCtx.fillStyle='#FFD600';ccCtx.font='bold 24px Fredoka One,cursive';ccCtx.textAlign='center';
+  ccCtx.fillText('Game Over!',ccCanvas.width/2,170);
+  ccCtx.fillStyle='#fff';ccCtx.font='18px Fredoka One,cursive';
+  ccCtx.fillText('Score: '+ccScore,ccCanvas.width/2,208);
+  if(ccScore>0)launchConfetti();
+}
+function spawnCCObj(){
+  const r=Math.random();
+  let type,emoji,pts;
+  if(r<.42){type='color';emoji=['🎨','🔴','🟡','🟢','🔵','🟣'][Math.floor(Math.random()*6)];pts=10;}
+  else if(r<.57){type='star';emoji='⭐';pts=25;}
+  else{type='bomb';emoji='💣';pts=-20;}
+  ccObjects.push({x:Math.random()*(ccCanvas.width-34)+17,y:-28,vy:2.5+Math.random()*2.2,type,emoji,pts,active:true});
+}
+function ccLoop(){
+  if(ccState!=='playing'){drawCCBucket();return;}
+  ccCtx.clearRect(0,0,ccCanvas.width,ccCanvas.height);
+  if(bucketKeys.left)bucketX=Math.max(0,bucketX-BUCKET_SPD);
+  if(bucketKeys.right)bucketX=Math.min(ccCanvas.width-BUCKET_W,bucketX+BUCKET_SPD);
+  ccObjects=ccObjects.filter(o=>{
+    if(!o.active)return false;
+    o.y+=o.vy;
+    if(o.y>ccCanvas.height-BUCKET_H-8&&o.y<ccCanvas.height-BUCKET_H+28&&o.x>bucketX&&o.x<bucketX+BUCKET_W){
+      ccScore+=o.pts;if(ccScore<0)ccScore=0;
+      document.getElementById('cc-score').textContent=ccScore;
+      if(o.type!=='bomb'){ccCombo++;if(ccCombo>=3)ccScore+=5;}else ccCombo=0;
+      if(o.type!=='bomb')doBlast(ccCanvas.getBoundingClientRect().left+o.x,ccCanvas.getBoundingClientRect().top+o.y);
+      return false;
+    }
+    if(o.y>ccCanvas.height+36)return false;
+    ccCtx.font='32px serif';ccCtx.textAlign='center';ccCtx.textBaseline='middle';
+    ccCtx.fillText(o.emoji,o.x,o.y);
+    return true;
+  });
+  drawCCBucket();
+  ccCtx.fillStyle='rgba(255,255,255,.55)';ccCtx.font='12px Nunito,sans-serif';ccCtx.textAlign='left';ccCtx.textBaseline='top';
+  ccCtx.fillText('Score: '+ccScore,8,8);
+  ccAnimFrame=requestAnimationFrame(ccLoop);
+}
+function drawCCBucket(){
+  ccCtx.fillStyle='rgba(255,214,0,.9)';
+  ccCtx.beginPath();
+  if(ccCtx.roundRect)ccCtx.roundRect(bucketX,ccCanvas.height-BUCKET_H,BUCKET_W,BUCKET_H,7);
+  else ccCtx.rect(bucketX,ccCanvas.height-BUCKET_H,BUCKET_W,BUCKET_H);
+  ccCtx.fill();
+  ccCtx.font='16px serif';ccCtx.textAlign='center';ccCtx.textBaseline='middle';
+  ccCtx.fillText('🪣',bucketX+BUCKET_W/2,ccCanvas.height-BUCKET_H/2);
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft'||e.key==='a'||e.key==='A'){bucketKeys.left=true;if(ccState==='playing')e.preventDefault();}
+  if(e.key==='ArrowRight'||e.key==='d'||e.key==='D'){bucketKeys.right=true;if(ccState==='playing')e.preventDefault();}
+  if(e.key==='Escape'){closeDishModal();closeWishPopup();closeLightbox();closeOrderOverlay();}
+});
+document.addEventListener('keyup',e=>{
+  if(e.key==='ArrowLeft'||e.key==='a'||e.key==='A')bucketKeys.left=false;
+  if(e.key==='ArrowRight'||e.key==='d'||e.key==='D')bucketKeys.right=false;
+});
+// Mouse control: move bucket to follow mouse over canvas
+ccCanvas.addEventListener('mousemove',e=>{
+  if(ccState!=='playing')return;
+  const rect=ccCanvas.getBoundingClientRect();
+  bucketX=Math.max(0,Math.min(ccCanvas.width-BUCKET_W,(e.clientX-rect.left)-BUCKET_W/2));
+});
+ccCanvas.addEventListener('touchstart',e=>{
+  const touch=e.touches[0];const rect=ccCanvas.getBoundingClientRect();
+  bucketX=Math.max(0,Math.min(ccCanvas.width-BUCKET_W,(touch.clientX-rect.left)-BUCKET_W/2));
+},{passive:true});
+ccCanvas.addEventListener('touchmove',e=>{
+  const touch=e.touches[0];const rect=ccCanvas.getBoundingClientRect();
+  bucketX=Math.max(0,Math.min(ccCanvas.width-BUCKET_W,(touch.clientX-rect.left)-BUCKET_W/2));
+},{passive:true});
+ccCanvas.addEventListener('touchend',()=>{bucketKeys.left=false;bucketKeys.right=false;});
+setTimeout(drawCCBucket,100);
+
+// ══════════════════════════════════
+// GAME 2: BALLOON BURST
+// ══════════════════════════════════
+let bbState='idle',bbScore=0,bbTime=30,bbHighScore=parseInt(localStorage.getItem('bbHS')||'0');
+let bbTimer=null,bbSpawn=null,bbCombo=0,bbMaxCombo=1,bbMissed=0,bbBursted=0,bbLevel=1;
+let bbIdCounter=0,bbBalloons=new Map();
+const bbArena=document.getElementById('game-arena');
+const BB_TYPES=[
+  {type:'regular',emoji:'🎈',pts:10,weight:50},{type:'regular',emoji:'🎈',pts:10,weight:40},
+  {type:'star',emoji:'⭐',pts:25,weight:15},{type:'rainbow',emoji:'🌈',pts:15,weight:20},
+  {type:'bomb',emoji:'💣',pts:-20,weight:15},
+];
+function getBBType(){
+  const pool=[];
+  BB_TYPES.forEach(b=>{for(let i=0;i<b.weight;i++)pool.push(b);});
+  return pool[Math.floor(Math.random()*pool.length)];
+}
+function startBalloon(e){
+  e&&e.stopPropagation();
+  bbScore=0;bbTime=30;bbCombo=0;bbMaxCombo=1;bbMissed=0;bbBursted=0;bbLevel=1;bbIdCounter=0;
+  clearBBBalloons();
+  bbState='playing';
+  document.getElementById('bb-start').style.display='none';
+  document.getElementById('bb-gameover').style.display='none';
+  updateBBHUD();
+  bbTimer=setInterval(()=>{
+    bbTime--;updateBBHUD();
+    if(bbTime===20){bbLevel=2;}
+    if(bbTime===10){bbLevel=3;}
+    if(bbTime<=0)endBalloon();
+  },1000);
+  scheduleBBSpawn();
+  document.getElementById('bb-hs').textContent=bbHighScore;
+}
+function scheduleBBSpawn(){
+  if(bbState!=='playing')return;
+  const delay=(bbLevel===1?900:bbLevel===2?650:430)+Math.random()*300-150;
+  bbSpawn=setTimeout(()=>{spawnBalloon();scheduleBBSpawn();},Math.max(delay,250));
+}
+function spawnBalloon(){
+  if(bbState!=='playing')return;
+  const type=getBBType();
+  const id=++bbIdCounter;
+  const arenaW=bbArena.offsetWidth;
+  const size=type.type==='star'?52:type.type==='bomb'?44:44+Math.random()*14;
+  const x=Math.random()*(arenaW-size-12)+6;
+  const speed=(bbLevel===1?3:bbLevel===2?2.5:2)+Math.random()*1;
+  const el=document.createElement('div');
+  el.className='balloon';
+  el.dataset.id=id;
+  el.style.cssText=`left:${x}px;font-size:${size}px;line-height:1;animation-duration:${speed}s;text-align:center;width:${size+8}px;`;
+  el.textContent=type.emoji;
+  el.addEventListener('pointerdown',ev=>{ev.stopPropagation();burstBalloon(id,el,type);},{once:true});
+  bbArena.appendChild(el);
+  bbBalloons.set(id,{el,type});
+  el.addEventListener('animationend',()=>{
+    if(bbBalloons.has(id)){
+      bbBalloons.delete(id);el.remove();
+      if(type.type!=='bomb'){bbMissed++;bbCombo=0;updateBBHUD();}
+    }
+  });
+}
+function burstBalloon(id,el,type){
+  if(!bbBalloons.has(id)||bbState!=='playing')return;
+  bbBalloons.delete(id);
+  const rect=el.getBoundingClientRect();
+  const ar=bbArena.getBoundingClientRect();
+  const bx=rect.left-ar.left+rect.width/2,by=rect.top-ar.top+rect.height/2;
+  el.remove();
+  const burst=document.createElement('div');
+  burst.className='burst';
+  burst.style.left=(bx-22)+'px';burst.style.top=(by-22)+'px';
+  burst.textContent=type.type==='bomb'?'💥':'✨';
+  bbArena.appendChild(burst);
+  setTimeout(()=>burst.remove(),500);
+  let pts=type.pts;
+  if(type.type!=='bomb'&&bbCombo>1)pts=Math.round(pts*bbCombo);
+  bbScore=Math.max(0,bbScore+pts);
+  if(bbScore>bbHighScore){bbHighScore=bbScore;localStorage.setItem('bbHS',bbHighScore);}
+  if(type.type!=='bomb'){bbCombo=Math.min(bbCombo+1,8);if(bbCombo>bbMaxCombo)bbMaxCombo=bbCombo;bbBursted++;}
+  else{bbCombo=0;bbArena.classList.add('bomb-flash');setTimeout(()=>bbArena.classList.remove('bomb-flash'),300);}
+  const pop=document.createElement('div');
+  pop.className='score-pop-el';
+  pop.style.left=(bx-20)+'px';pop.style.top=(by-20)+'px';pop.textContent=(pts>0?'+':'')+pts;
+  pop.style.color=pts>0?'#36D399':'#FF3CAC';
+  bbArena.appendChild(pop);
+  setTimeout(()=>pop.remove(),800);
+  doBlast(rect.left+rect.width/2,rect.top+rect.height/2);
+  updateBBHUD();
+}
+function clearBBBalloons(){bbBalloons.forEach(v=>v.el.remove());bbBalloons.clear();bbArena.querySelectorAll('.burst,.score-pop-el,.balloon').forEach(el=>el.remove());}
+function updateBBHUD(){
+  document.getElementById('bb-score').textContent=bbScore;
+  document.getElementById('bb-timer').textContent=bbTime;
+  document.getElementById('bb-hs').textContent=bbHighScore;
+  const ring=document.getElementById('bb-ring');
+  ring.style.strokeDashoffset=207*(1-bbTime/30);
+  ring.style.stroke=bbTime<=10?'#FF6B35':bbTime<=20?'#F9D923':'#FF3CAC';
+}
+function endBalloon(){
+  bbState='gameover';
+  clearInterval(bbTimer);clearTimeout(bbSpawn);clearBBBalloons();
+  document.getElementById('bb-final').textContent=bbScore;
+  document.getElementById('bb-hs-badge').style.display=bbScore>=bbHighScore&&bbScore>0?'block':'none';
+  document.getElementById('bb-gameover').style.display='flex';
+  if(bbScore>0)launchConfetti();
+}
+bbArena.addEventListener('click',e=>{
+  if(bbState!=='playing')return;
+  const rect=bbArena.getBoundingClientRect();
+  const ripple=document.createElement('div');
+  ripple.style.cssText=`position:absolute;left:${e.clientX-rect.left-18}px;top:${e.clientY-rect.top-18}px;width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.25);pointer-events:none;z-index:5;animation:burstAnim .3s ease-out forwards`;
+  bbArena.appendChild(ripple);
+  setTimeout(()=>ripple.remove(),350);
+});
+
+// ══════════════════════════════════
+// GAME 3: RANGOLI DRAW
+// ══════════════════════════════════
+const rangoliCanvas=document.getElementById('rangoli-canvas');
+const rCtx=rangoliCanvas&&rangoliCanvas.getContext('2d');
+let rDrawing=false,rColor='#FF2D78',rBrushSize=10;
+const rPalette=['#FF2D78','#FFD600','#00E676','#00B0FF','#D500F9','#FF6D00','#FF1744','#00E5FF','#76FF03','#FF8F00','#E040FB','#00BCD4','#FFFFFF','#8D6E63'];
+
+function initRangoli(){
+  if(!rCtx)return;
+  rCtx.fillStyle='#0A0010';
+  rCtx.fillRect(0,0,rangoliCanvas.width,rangoliCanvas.height);
+  renderRangolPalette();
+  drawBasePattern('mandala');
+  
+  rangoliCanvas.addEventListener('mousedown',e=>{rDrawing=true;rCtx.beginPath();rCtx.moveTo(...getRPos(e));});
+  rangoliCanvas.addEventListener('mousemove',e=>{
+    if(!rDrawing)return;
+    const [x,y]=getRPos(e);
+    rCtx.lineWidth=rBrushSize;rCtx.lineCap='round';rCtx.strokeStyle=rColor;rCtx.globalAlpha=0.92;
+    rCtx.lineTo(x,y);rCtx.stroke();rCtx.beginPath();rCtx.moveTo(x,y);
+    // Symmetric draw
+    const cx=rangoliCanvas.width/2,cy=rangoliCanvas.height/2;
+    const dx=x-cx,dy=y-cy;
+    rCtx.beginPath();rCtx.moveTo(cx-dx,cy-dy);rCtx.lineTo(cx-dx,cy-dy);
+    rCtx.arc(cx-dx,cy-dy,rBrushSize/2,0,Math.PI*2);rCtx.fillStyle=rColor;rCtx.fill();
+  });
+  rangoliCanvas.addEventListener('mouseup',()=>{rDrawing=false;rCtx.globalAlpha=1;});
+  rangoliCanvas.addEventListener('touchstart',e=>{e.preventDefault();rDrawing=true;const t=e.touches[0];rCtx.beginPath();rCtx.moveTo(...getRPos(t));},{passive:false});
+  rangoliCanvas.addEventListener('touchmove',e=>{
+    e.preventDefault();if(!rDrawing)return;
+    const t=e.touches[0];const [x,y]=getRPos(t);
+    rCtx.lineWidth=rBrushSize;rCtx.lineCap='round';rCtx.strokeStyle=rColor;
+    rCtx.lineTo(x,y);rCtx.stroke();rCtx.beginPath();rCtx.moveTo(x,y);
+  },{passive:false});
+  rangoliCanvas.addEventListener('touchend',()=>{rDrawing=false;});
+  document.getElementById('brush-size').addEventListener('input',e=>{rBrushSize=parseInt(e.target.value);});
+}
+function getRPos(e){
+  const rect=rangoliCanvas.getBoundingClientRect();
+  return [e.clientX-rect.left,e.clientY-rect.top];
+}
+function renderRangolPalette(){
+  const p=document.getElementById('rangoli-palette');
+  if(!p)return;
+  p.innerHTML=rPalette.map(c=>`<div onclick="rColor='${c}';document.querySelectorAll('.r-swatch').forEach(s=>s.style.transform='scale(1)');this.style.transform='scale(1.3)'" class="r-swatch" style="width:28px;height:28px;border-radius:50%;background:${c};cursor:pointer;border:2px solid rgba(255,255,255,.15);transition:transform .2s"></div>`).join('');
+}
+function clearRangoli(){
+  rCtx.fillStyle='#0A0010';rCtx.fillRect(0,0,rangoliCanvas.width,rangoliCanvas.height);
+}
+function saveRangoli(){
+  const link=document.createElement('a');
+  link.download='my-holi-rangoli.png';
+  link.href=rangoliCanvas.toDataURL();
+  link.click();
+  showToast('Rangoli saved! 🌸');
+}
+function randomRangoliPattern(){
+  const patterns=['circle','star','lotus','mandala'];
+  drawBasePattern(patterns[Math.floor(Math.random()*patterns.length)]);
+}
+function drawBasePattern(type){
+  if(!rCtx)return;
+  const w=rangoliCanvas.width,h=rangoliCanvas.height,cx=w/2,cy=h/2;
+  clearRangoli();
+  const cols=['#FF2D78','#FFD600','#00E676','#00B0FF','#D500F9','#FF6D00'];
+  
+  if(type==='circle'){
+    for(let r=20;r<=180;r+=22){
+      rCtx.beginPath();rCtx.arc(cx,cy,r,0,Math.PI*2);
+      rCtx.strokeStyle=cols[Math.floor(r/22)%cols.length];rCtx.lineWidth=3;rCtx.stroke();
+    }
+  } else if(type==='star'){
+    for(let a=0;a<Math.PI*2;a+=Math.PI/6){
+      rCtx.beginPath();rCtx.moveTo(cx,cy);
+      rCtx.lineTo(cx+Math.cos(a)*180,cy+Math.sin(a)*180);
+      rCtx.strokeStyle=cols[Math.floor(a/(Math.PI/6))%cols.length];rCtx.lineWidth=3;rCtx.stroke();
+    }
+    rCtx.beginPath();rCtx.arc(cx,cy,40,0,Math.PI*2);rCtx.fillStyle='#FFD600';rCtx.fill();
+  } else if(type==='lotus'){
+    for(let i=0;i<12;i++){
+      const a=i*Math.PI/6;
+      rCtx.beginPath();rCtx.ellipse(cx+Math.cos(a)*70,cy+Math.sin(a)*70,30,60,a,0,Math.PI*2);
+      rCtx.strokeStyle=cols[i%cols.length];rCtx.lineWidth=2;rCtx.stroke();
+    }
+    rCtx.beginPath();rCtx.arc(cx,cy,35,0,Math.PI*2);rCtx.fillStyle='#FFD600';rCtx.fill();
+  } else if(type==='mandala'){
+    for(let layer=0;layer<5;layer++){
+      const r=30+layer*34;const pts=8+layer*4;
+      for(let i=0;i<pts;i++){
+        const a=i*(Math.PI*2/pts);const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;
+        rCtx.beginPath();rCtx.arc(x,y,8-layer,0,Math.PI*2);
+        rCtx.fillStyle=cols[(layer+i)%cols.length];rCtx.fill();
+      }
+    }
+    rCtx.beginPath();rCtx.arc(cx,cy,20,0,Math.PI*2);rCtx.fillStyle='#FFD600';rCtx.fill();
+  }
+}
+
+// ══════════════════════════════════
+// GAME 4: COLOR TOSS
+// ══════════════════════════════════
+const ctCanvas=document.getElementById('toss-canvas');
+const ctCtx=ctCanvas&&ctCanvas.getContext('2d');
+let ctState='idle',ctScore=0,ctRound=0,ctTotalRounds=30;
+let ctTarget={x:200,y:150,r:50,color:'#FF2D78',label:'Hit!'};
+let ctBallInFlight=false,ctBallX=0,ctBallY=0,ctBallVX=0,ctBallVY=0;
+let ctCurrentColor='#FF2D78',ctAnimFrame2=null;
+const ctColors=['#FF2D78','#FFD600','#00E676','#00B0FF','#D500F9'];
+const ctColorNames=['Pink','Yellow','Green','Blue','Purple'];
+
+function startColorToss(){
+  if(ctState==='playing')return;
+  ctState='playing';ctScore=0;ctRound=0;
+  document.getElementById('ct-score').textContent='0';
+  nextCTRound();
+  requestAnimationFrame(ctLoop);
+}
+function resetColorToss(){
+  ctState='idle';ctScore=0;ctRound=0;ctBallInFlight=false;
+  document.getElementById('ct-score').textContent='0';
+  document.getElementById('ct-round').textContent='0 / 30';
+  cancelAnimationFrame(ctAnimFrame2);
+  if(ctCtx){ctCtx.clearRect(0,0,ctCanvas.width,ctCanvas.height);drawCTIdle();}
+}
+function nextCTRound(){
+  if(ctRound>=ctTotalRounds){endCTGame();return;}
+  ctRound++;
+  const ci=Math.floor(Math.random()*ctColors.length);
+  ctCurrentColor=ctColors[ci];
+  const margin=80;
+  ctTarget={
+    x:margin+Math.random()*(ctCanvas.width-margin*2),
+    y:50+Math.random()*(ctCanvas.height-200),
+    r:45-Math.floor(ctRound/8)*5,
+    color:ctColors[ci],
+    innerR:15,
+    label:ctColorNames[ci]
+  };
+  ctBallInFlight=false;
+  document.getElementById('ct-round').textContent=ctRound+' / '+ctTotalRounds;
+}
+function endCTGame(){
+  ctState='over';
+  const hs=Math.max(ctScore,parseInt(localStorage.getItem('ctHS')||'0'));
+  localStorage.setItem('ctHS',hs);
+  document.getElementById('ct-hs').textContent=hs;
+  if(ctCtx){
+    ctCtx.fillStyle='rgba(10,0,16,.85)';ctCtx.fillRect(0,0,ctCanvas.width,ctCanvas.height);
+    ctCtx.fillStyle='#FFD600';ctCtx.font='bold 22px Fredoka One,cursive';ctCtx.textAlign='center';
+    ctCtx.fillText('Toss Complete!',ctCanvas.width/2,180);
+    ctCtx.fillStyle='#fff';ctCtx.font='18px Fredoka One,cursive';
+    ctCtx.fillText('Score: '+ctScore,ctCanvas.width/2,215);
+    ctCtx.fillStyle='rgba(255,255,255,.5)';ctCtx.font='13px Nunito,sans-serif';
+    ctCtx.fillText('Press Start to play again',ctCanvas.width/2,248);
+  }
+  if(ctScore>100)launchConfetti();
+}
+function ctLoop(){
+  if(!ctCtx||ctState!=='playing'){if(ctCtx)drawCTIdle();return;}
+  ctCtx.clearRect(0,0,ctCanvas.width,ctCanvas.height);
+  drawCTBackground();
+  drawCTTarget();
+  drawCTBall();
+  drawCTHUD();
+  if(ctBallInFlight){
+    ctBallX+=ctBallVX;ctBallY+=ctBallVY;ctBallVY+=0.4; // gravity
+    const dx=ctBallX-ctTarget.x,dy=ctBallY-ctTarget.y;
+    const dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<ctTarget.r){
+      let pts=dist<ctTarget.innerR?50:20;
+      ctScore+=pts;
+      document.getElementById('ct-score').textContent=ctScore;
+      doBlast(ctCanvas.getBoundingClientRect().left+ctBallX,ctCanvas.getBoundingClientRect().top+ctBallY);
+      ctBallInFlight=false;
+      setTimeout(nextCTRound,500);
+    } else if(ctBallY>ctCanvas.height+20||ctBallX<-20||ctBallX>ctCanvas.width+20){
+      ctScore=Math.max(0,ctScore-5);
+      document.getElementById('ct-score').textContent=ctScore;
+      ctBallInFlight=false;
+      setTimeout(nextCTRound,300);
+    }
+  }
+  ctAnimFrame2=requestAnimationFrame(ctLoop);
+}
+function drawCTBackground(){
+  ctCtx.fillStyle='#0A0010';ctCtx.fillRect(0,0,ctCanvas.width,ctCanvas.height);
+  // Throw zone
+  ctCtx.fillStyle='rgba(255,255,255,.03)';
+  ctCtx.fillRect(0,ctCanvas.height-100,ctCanvas.width,100);
+  ctCtx.fillStyle='rgba(255,255,255,.06)';
+  ctCtx.fillRect(ctCanvas.width/2-40,ctCanvas.height-95,80,10);
+  ctCtx.font='12px Nunito,sans-serif';ctCtx.fillStyle='rgba(255,255,255,.3)';
+  ctCtx.textAlign='center';ctCtx.fillText('Click target to toss!',ctCanvas.width/2,ctCanvas.height-65);
+}
+function drawCTTarget(){
+  const t=ctTarget;
+  // Outer ring
+  ctCtx.beginPath();ctCtx.arc(t.x,t.y,t.r,0,Math.PI*2);
+  ctCtx.strokeStyle=t.color;ctCtx.lineWidth=3;ctCtx.stroke();
+  ctCtx.fillStyle=t.color+'22';ctCtx.fill();
+  // Middle ring
+  ctCtx.beginPath();ctCtx.arc(t.x,t.y,t.r*0.6,0,Math.PI*2);
+  ctCtx.strokeStyle=t.color;ctCtx.lineWidth=2;ctCtx.stroke();
+  // Bull's eye
+  ctCtx.beginPath();ctCtx.arc(t.x,t.y,t.innerR,0,Math.PI*2);
+  ctCtx.fillStyle=t.color;ctCtx.fill();
+  ctCtx.fillStyle='#fff';ctCtx.font='bold 10px Nunito,sans-serif';
+  ctCtx.textAlign='center';ctCtx.fillText('★',t.x,t.y+4);
+  // Label
+  ctCtx.fillStyle=t.color;ctCtx.font='bold 11px Nunito,sans-serif';
+  ctCtx.fillText(t.label,t.x,t.y+t.r+15);
+}
+function drawCTBall(){
+  if(!ctBallInFlight)return;
+  ctCtx.beginPath();ctCtx.arc(ctBallX,ctBallY,12,0,Math.PI*2);
+  ctCtx.fillStyle=ctCurrentColor;ctCtx.fill();
+  ctCtx.fillStyle='rgba(255,255,255,.4)';ctCtx.beginPath();ctCtx.arc(ctBallX-4,ctBallY-4,4,0,Math.PI*2);ctCtx.fill();
+}
+function drawCTHUD(){
+  ctCtx.fillStyle='rgba(255,255,255,.5)';ctCtx.font='12px Nunito,sans-serif';ctCtx.textAlign='left';
+  ctCtx.fillText('Score: '+ctScore,8,20);
+  ctCtx.textAlign='right';ctCtx.fillText('Round: '+ctRound+'/'+ctTotalRounds,ctCanvas.width-8,20);
+  // Color indicator
+  ctCtx.beginPath();ctCtx.arc(30,ctCanvas.height-30,12,0,Math.PI*2);
+  ctCtx.fillStyle=ctCurrentColor;ctCtx.fill();
+  ctCtx.fillStyle='rgba(255,255,255,.4)';ctCtx.font='11px Nunito,sans-serif';ctCtx.textAlign='left';
+  ctCtx.fillText('Your color: '+ctColorNames[ctColors.indexOf(ctCurrentColor)],50,ctCanvas.height-26);
+}
+function drawCTIdle(){
+  ctCtx.fillStyle='#0A0010';ctCtx.fillRect(0,0,ctCanvas.width,ctCanvas.height);
+  ctCtx.fillStyle='rgba(255,255,255,.35)';ctCtx.font='16px Fredoka One,cursive';ctCtx.textAlign='center';
+  ctCtx.fillText('Press Start to play!',ctCanvas.width/2,ctCanvas.height/2);
+  ctCtx.font='40px serif';ctCtx.fillText('🎯',ctCanvas.width/2,ctCanvas.height/2-60);
+}
+ctCanvas&&ctCanvas.addEventListener('click',e=>{
+  if(ctState!=='playing'||ctBallInFlight)return;
+  const rect=ctCanvas.getBoundingClientRect();
+  const tx=e.clientX-rect.left,ty=e.clientY-rect.top;
+  // Throw from bottom center toward click
+  ctBallX=ctCanvas.width/2;ctBallY=ctCanvas.height-80;
+  const dx=tx-ctBallX,dy=ty-ctBallY;
+  const dist=Math.sqrt(dx*dx+dy*dy);
+  const speed=12;
+  ctBallVX=(dx/dist)*speed;ctBallVY=(dy/dist)*speed;
+  ctBallInFlight=true;
+});
+drawCTIdle&&setTimeout(drawCTIdle,150);
+
+// ── GAME TABS ──
+function switchGame(tab, btn){
+  document.querySelectorAll('.game-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.game-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+tab).classList.add('active');
+  btn.classList.add('active');
+  if(tab==='rangoli'&&rangoliCanvas){setTimeout(initRangoli,100);}
+}
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded',()=>{
+  renderTimeline();
+  renderDishes();renderWishes();renderGallery();renderShop();renderSafety();renderMemes();renderQuiz();
+  updateCartBadge();renderCartItems();
+  setTimeout(initReveal,200);
+  startColorRain();
+  updateSongTitle();
+  document.getElementById('cc-hs').textContent=localStorage.getItem('ccHS')||'0';
+  setTimeout(()=>{showToast('🎨 Happy Holi 2026! Click 🎵 for music!');},2500);
+});
+</script>
+</body>
+</html>
